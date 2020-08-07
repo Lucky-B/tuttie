@@ -6,14 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Signin Template · Bootstrap</title>
+    <title>Pricing example · Bootstrap</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
 
     <!-- Bootstrap core CSS -->
 <link href="assets/dist/css/bootstrap.css" rel="stylesheet">
-<link href="assets/dist/css/bootstrap-grid.css" rel="stylesheet">
-<link href="assets/dist/css/bootstrap-reboot.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -32,24 +30,51 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="assets/signin.css" rel="stylesheet">
+    <link href="assets/pricing.css" rel="stylesheet">
   </head>
-  <body class="text-center">
-    <form class="form-signin">
-  <img class="mb-4" src="assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <br>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
+  <body>
+   
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Tutoring Applications</h1>
+  <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    
+	<div class="card mb-6 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Free</h4>
+      </div>
+	  <div class="card-body">
+        <div class="container rounded float-left">
+		<img src="..." alt="..."class="img-fluid" alt="Responsive image"/>
+		</div>
+		<div class="container">
+			<h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+			<ul class="list-unstyled mt-3 mb-4">
+			  <li>10 users included</li>
+			  <li>2 GB of storage</li>
+			  <li>Email support</li>
+			  <li>Help center access</li>
+			</ul>
+		</div>	
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+      </div>
+    </div>
+    
+	<div class="card mb-6 shadow-sm" style="background-image: url(assets/img/paris.jpg);" >
+	  <div class="card-header" >
+		<h4 class="my-0 font-weight-normal">Lecturer</h4>
+	  </div>
+	  <div class="card-body" >
+		Content dfdf dfdf dfdf df dfdf dfdf dfdf dfd df
+		<button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+	  </div>
+	</div>
+	
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-</form>
+</div>
 </body>
 </html>
