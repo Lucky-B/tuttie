@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script>
+
+</script>
 </head>
 <body>
-<iframe src="https://casprd.nwu.ac.za/cas/login" frameborder="0" style="overflow: hidden; height: 100%; width: 100%; position: absolute;" >
-</iframe/>
-<script>
-	show function()
-	{
-		console.log(document.cookie[0]);
-	}
-	show();
-</script>
 
+<p>
 <?php
-if(isset($_COOKIE["CASTGC"])) {
-     echo "Cookie is set user name is '" . $_POST['username'] . "' nice !";
-} 
-
-echo "<br>";
-print_r (headers_list());
+session_start();
+echo session_id(),'<br>';
 ?>
-
+<?php
+print_r($_SESSION);
+?>
+<?php
+if(isset($_SESSION["id"])){
+     echo "Cookie is set user name is '" . $_SESSION["id"] . "' nice !";
+} 
+if (isset($_POST['username'])){
+	echo $_POST['username'];
+}
+?>
+</p>
 <p><strong>Note:</strong> You might have to reload the page to see the value of the cookie.</p>
 
 </body>
