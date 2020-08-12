@@ -12,51 +12,46 @@ class Student extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('template/header');
-		$this->load->view('student/application_part1');
+		$this->load->view('student/application');
 		$this->load->view('template/footer');
-
 	}
 
-	public function laststep()
+	public function finished()
 	{
-		if(true)
+		$this->load->library('email');
+		$config['protocol'] = 'sendmail';
+		$config['mailpath'] = '/usr/sbin/sendmail';
+		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+		$config['smtp_host'] ='mail.tuttie.co.za';
+		$config['smtp_user'] = 'no-reply@tuttie.co.za';
+		$config['smtp_pass'] = 'x1EEBp37vQS#';
+		$config['smtp_port'] = 456;
+		$config['smtp_timeout'] = 10;
+		$config['smtp_keepalive'] = false ;
+		$config['smtp_crypto'] = 'tls';
+		$config['wordwrap'] = true;
+		$config['mailtype']  = 'html';
+		$config['charset'] = 'utf-8';
+		$config['crlf'] = '\r\n' ;
+		$config['newline'] = '\n';
+		$config['dsn'] = true;
+		$this->email->initialize($config);
+		$this->email->from('no-reply@tuttie.co.za', 'Lucky Bogatsu');
+		$this->email->to('Luckybogatsu@gmail.com');
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class.');
+
+		if($this->email->send())
 		{
 			$this->load->view('template/header');
-			$this->load->view('student/application_part2');
+			$this->load->view('student/finished');
 			$this->load->view('template/footer');
 		}
 		else
 		{
-			//return redirect()->to('index'); 
-		}
-	}
-
-
-	public function finished()
-	{
-		if(true)
-		{
-			/* 
-			$email = \Config\Services::email();
-			$email->setTo('luckybogatsu@gmail.com');
-			$email->setFrom('no-reply@tuttie.co.za');
-			$email->setSubject('Here is your info ');
-			$email->setMessage('Hi Here is the info you requested.');
-			if($email->send())
-			{
-				echo view('template/header');
-				echo view('student/finished');
-				echo view('template/footer');
-			}
-			else
-			{
-				$data = $email->printDebugger(['header']);
-				print_r($data);
-			} */
-		}
-		else
-		{
-			return redirect()->to('index');
+			$data = $this->email->print_debugger();
+			print_r($data);
 		}
 	}
 
