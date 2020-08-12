@@ -11,7 +11,7 @@
 					  <div class="card-header text-secondary">
 							<h1>Student</h1>
 							</div>
-						 <img class="card-img-top" src="img/02.jpg" alt="Card image cap">
+						 <img class="card-img-top" src="<?= base_url();?>img/02.jpg" alt="Card image cap">
 							
 						<div class="container">
 							<h1 class="card-title pricing-card-title"><small class="text-muted">Tutor:</small></h1>
@@ -22,7 +22,7 @@
 							 </ul>
 						</div>
 						<br/>
-						<a href="<?= base_url();?>/student" style="color:inherit">
+						<a href="<?= base_url();?>student" style="color:inherit">
 						<button type="button" class="btn btn-lg btn-block btn-primary">
 							 Apply
 						</button>
@@ -35,7 +35,7 @@
 					   <div class="card-header text-secondary">
 							<h1>Lecturer</h1>
 							</div>
-						<img class="card-img-top" src="img/01.jpg" alt="Card image cap">
+						<img class="card-img-top" src="<?= base_url();?>img/01.jpg" alt="Card image cap">
 						
 						<div class="container">
 							<h1 class="card-title pricing-card-title"><small class="text-muted">Lecturer </small></h1>
@@ -46,7 +46,7 @@
 							 </ul>
 						</div>
 						<br/>
-						<a href="<?= base_url();?>/lecturer" style="color:inherit">
+						<a href="<?= base_url();?>lecturer" style="color:inherit">
 						<button  type="button" class="btn btn-lg btn-block btn-info">
 							Nominate</button></a>
 					  </div>
@@ -75,7 +75,7 @@
             <h2 class="display-4">Lecturer...</h2>
             <p>Get a tutor to liaise with students. Clear communication with students. Boost overall performance of students and partake in tutoriage.</p>
 				<div class="col text-center">
-				<a href="<?= base_url();?>/lecturer" class="btn btn-info btn-xl rounded-pill mt-5">Nominate</a>
+				<a href="<?= base_url();?>lecturer" class="btn btn-info btn-xl rounded-pill mt-5">Nominate</a>
 				</div>
 		  </div>
         </div>
@@ -96,7 +96,7 @@
             <h2 class="display-4">Tutor..</h2>
             <p>Good academic record. Flexible. Available. Good communicator. Ability to work under pressure.</p>
 			<div class="col text-center">
-			<a href="<?= base_url();?>/student" class="btn btn-primary btn-xl rounded-pill mt-5">Apply</a>
+			<a href="<?= base_url();?>student" class="btn btn-primary btn-xl rounded-pill mt-5">Apply</a>
 			</div>
     
 		  </div>
