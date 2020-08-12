@@ -1,4 +1,3 @@
-<?$this->session->destroy();?>
 <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">

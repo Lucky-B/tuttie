@@ -1,3 +1,1 @@
-<?=session_id();?>
-<br>
-<?=session('step_1');?>
+Step 1
