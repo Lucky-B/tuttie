@@ -2,6 +2,11 @@
 
 class Home extends BaseController
 {
+	function __construct()
+    {
+        $this->helpers = array_merge($this->helpers, ['url']);
+    }
+	
 	public function index()
 	{
 		echo view('template/header');
