@@ -25,52 +25,88 @@
           <div class="p-5">
             <h2 class="display-4">Nominate a student...</h2>
 			<div class="container">
-			<form action="<?= base_url();?>/lecturer/finished" >
-			  <div class="form-row">
-				<div class="form-group col-md-6">
-				  <label for="inputEmail4">Email</label>
-				  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-				</div>
-				<div class="form-group col-md-6">
-				  <label for="inputPassword4">Password</label>
-				  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-				</div>
-			  </div>
-			  <div class="form-group">
-				<label for="inputAddress">Address</label>
-				<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-			  </div>
-			  <div class="form-group">
-				<label for="inputAddress2">Address 2</label>
-				<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-			  </div>
-			  <div class="form-row">
-				<div class="form-group col-md-6">
-				  <label for="inputCity">City</label>
-				  <input type="text" class="form-control" id="inputCity">
-				</div>
-				<div class="form-group col-md-4">
-				  <label for="inputState">State</label>
-				  <select id="inputState" class="form-control">
-					<option selected>Choose...</option>
-					<option>...</option>
-				  </select>
-				</div>
-				<div class="form-group col-md-2">
-				  <label for="inputZip">Zip</label>
-				  <input type="text" class="form-control" id="inputZip">
-				</div>
-			  </div>
-			  <div class="form-group">
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" id="gridCheck">
-				  <label class="form-check-label" for="gridCheck">
-					Check me out
-				  </label>
-				</div>
-			  </div>
-			  <button type="submit" class="btn btn-info">Submit</button>
-			</form>
+			
+			
+<?php
+	  $formhead = array('role' => 'form');
+	  $student_number = array('type' => 'text',
+							'class' => 'form-control',
+							'size' => '8',
+							'maxlength' => '8',
+							'role' => 'form',
+							'name' => 'student_number',
+							'required' => 'required');
+
+		$surname = array('type' => 'text',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'surname');
+
+		$initial = array('type' => 'text',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'initial');		
+			
+		$phonenumber = array('type' => 'number',
+							'size' => '10',
+							'role' => 'form',
+							'min' => '10000000',
+							'maxlength' => '10',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'phonenumber'); 
+
+		$email = array('type' => 'email',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'email'); 
+ 
+		$title = array('type' => 'text',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'title'); 
+
+		$dropdownstyles ='class = "form-control" required';
+		
+		$faculty_options = array(''=>'Select the faculty',
+								'FEMS'  => 'FEMS',
+								'Education'    => 'Education',
+								'Engineering'   => 'Engineering',
+								'Health' => 'Health Sciences',
+								'Humanities' => 'Humanities',
+								'Law' => 'Law',
+								'FNAS' => 'FNAS',
+								'Theology' => 'Theology');
+ 
+				$lab_options = array('big'=>'big',
+									'small'=>'small');
+ 
+		$button = array('class' => 'btn btn-info',
+						'type'=>'submit',
+						'content'=>'Save');
+?>
+	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
+	  
+	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
+	  <?= form_label('Student number:', 'Student Number');?>
+	  <?= form_input($student_number);?>
+	  <?= form_label('Surname', 'surname');?>
+	  <?= form_input($surname);?>
+	  <?= form_label('Initial', '');?>
+	  <?= form_input($initial);?>
+	  <?= form_label('Phone Number:', '');?>
+	  <?= form_input($phonenumber);?>
+	  <?= form_label('Email:', '');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Faculty:', '');?>
+	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
+	  <?= form_label('Lab:', '');?>
+	  <?= form_dropdown('lab',$lab_options,'$lab',$dropdownstyles);?>
+	 <br>
+	  <?= form_button($button);?>
+      <?= form_close();?>
+			
+			
 			</div>
 		  </div>
         </div>
