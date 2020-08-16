@@ -94,19 +94,41 @@
 	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
 	  <?= form_label('Student number:', 'Student Number');?>
 	  <?= form_input($student_number);?>
-	  <?= form_label('Surname', 'surname');?>
+	  <?= form_label('Intials', 'Intials');?>
 	  <?= form_input($surname);?>
-	  <?= form_label('Initial', '');?>
+	  <?= form_label('Title', '');?>
 	  <?= form_input($initial);?>
-	  <?= form_label('Phone Number:', '');?>
+	  <?= form_label('Nationality:', 'Nationality');?>
 	  <?= form_input($phonenumber);?>
-	  <?= form_label('Email:', '');?>
+	  <?= form_label('ID no', 'ID no:');?>
 	  <?= form_input($email);?>
+	  <?= form_label('Passsport', 'Passsport');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Cell no', 'Cell no:');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Email', 'Email');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Email', 'Email');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Module_name', 'Module name');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Code', 'Code');?>
+	  <?= form_input($email);?>
+	  
 	  <?= form_label('Faculty:', '');?>
 	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
-	  <?= form_label('Lab:', '');?>
-	  <?= form_dropdown('lab',$lab_options,'$lab',$dropdownstyles);?>
-	 <br>
+	  
+	  <?= form_label('Lecturer', 'Lecturer');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Addtional Information', 'Addtional Information');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Terrms and Conditions', 'Terrms and Conditions');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Terrms and Conditions', 'Terrms and Conditions');?>
+	  <?= form_input($email);?>
+	  <?= form_label('Faculty', 'Faculty');?>
+	  <?= form_input($email);?>
+	  <br>
 	  <?= form_button($button);?>
       <?= form_close();?>
 	
