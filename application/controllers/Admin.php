@@ -9,7 +9,14 @@ class Admin extends CI_Controller {
 	//	$this->load->helper('form');
 	//	$this->load->library('form_validation');
 	//	$this->load->library('session');
+		$this->load->helper('string');
 		$this->load->helper('url');
+	}
+	public function index ()
+	{
+		echo random_string('alnum',20);
+		$this->load->view('admin/basic');
+	
 	}
 		//--------------------------------------------------------------------
 
