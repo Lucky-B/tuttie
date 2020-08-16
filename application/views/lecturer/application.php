@@ -29,27 +29,24 @@
 			
 <?php
 	  $formhead = array('role' => 'form');
-	  $student_number = array('type' => 'text',
-							'class' => 'form-control',
-							'size' => '8',
-							'maxlength' => '8',
-							'role' => 'form',
-							'name' => 'student_number',
-							'required' => 'required');
-
-		$surname = array('type' => 'text',
+	  $dropdownstyles ='class = "form-control" required';
+	  $campus_options = array(''=>'Campus',
+								'Mafikeng'  => 'Mafikeng',
+								'Vaal'    => 'Vaal',
+								'Potch'   => 'Potch');
+ 
+		$title_options = array(''=>'Title',
+								'Mr'  => 'Mr',
+								'Ms'    => 'Ms',
+								'Dr'   => 'Dr',
+								'Prof' => 'Prof');
+ 
+		$lastname = array('type' => 'text',
 							'class' =>'form-control',
+							'style' => 'text-transform: capitalize',
 							'required' => 'required',
 							'name' => 'surname');
 
-		$module = array('type' => 'text',
-							'maxlength' => '4',
-							'class' =>'form-control',
-							'style' =>'text-transform:uppercase',
-							'pattern' => '[A-Za-z]{4}',
-							'required' => 'required',
-							'title' => 'Eg. ACCM, WGMP',
-							'name' => 'initial');		
 		
 		$initial = array('type' => 'text',
 							'class' =>'form-control',
@@ -61,10 +58,20 @@
 							'maxlength' => '8',
 							'role' => 'form',
 							'pattern' => '[0-9]{8}',
+							'title' => 'Strictly staff number',
 							'class' =>'form-control',
 							'required' => 'required',
 							'name' => 'phonenumber'); 
-			
+		
+		$module = array('type' => 'text',
+							'maxlength' => '4',
+							'class' =>'form-control',
+							'style' =>'text-transform:uppercase',
+							'pattern' => '[A-Za-z]{4}',
+							'required' => 'required',
+							'title' => 'Eg. ACCM, WGMP',
+							'name' => 'initial');		
+		
 		$code = array('type' => 'number',
 							'type' => 'text',
 							'role' => 'form',
@@ -80,32 +87,15 @@
 							'required' => 'required',
 							'name' => 'email'); 
  
-		$title = array('type' => 'text',
-							'class' =>'form-control',
-							'required' => 'required',
-							'name' => 'title'); 
-
-		$dropdownstyles ='class = "form-control" required';
-		
-		$campus_options = array(''=>'Campus',
-								'Mafikeng'  => 'Mafikeng',
-								'Vaal'    => 'Vaal',
-								'Potch'   => 'Potch');
- 
-		$title_options = array(''=>'Title',
-								'Mr'  => 'Mr',
-								'Ms'    => 'Ms',
-								'Dr'   => 'Dr',
-								'Prof' => 'Prof');
- 
-				
- 
 		$button = array('class' => 'btn btn-info',
 						'type'=>'submit',
 						'content'=>'Send Nomination');
 ?>
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
+		
+		<h6>Lecturer Info:</h6> 
+		<hr>
 		<div class="form-row">
 		  <div class="form-group col-md-6">					
 		<?= form_dropdown('campus',$campus_options,'$campus',$dropdownstyles);?>
@@ -122,14 +112,15 @@
 	  <?= form_input($initial);?>
 	    </div>
 		<div class="form-group col-md-8">
-		<?= form_label('Lastname', 'Lastname');?>
-		<?= form_input($surname);?>
+		<?= form_label('Last name', 'Lastname');?>
+		<?= form_input($lastname);?>
 		</div>
 	</div>
-	  
-	  <?= form_label('Nominated student email', 'Email');?>
+	<h6>Student Info:</h6> 
+	 <hr>
+	  <?= form_label('Student email', 'Email');?>
 	  <?= form_input($email);?>
-	  <?= form_label('Varify nominated student email', 'Email');?>
+	  <?= form_label('Varify student email', 'Email');?>
 	  <?= form_input($email);?>
 	  <div class="form-row">
 		  <div class="form-group col-md-6">					

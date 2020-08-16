@@ -24,7 +24,7 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Apply to be a tutor:</h2>
+            <h2 class="display-4">Tutor Application:</h2>
             
 			<div class="container">
 			
@@ -32,23 +32,44 @@
 						
 <?php
   $formhead = array('role' => 'form');
-  $student_number = array('type' => 'text',
-						'class' => 'form-control',
-						'size' => '8',
-						'maxlength' => '8',
-						'role' => 'form',
-						'name' => 'student_number',
-						'required' => 'required');
+  
+  $campus_options = array(''=>'Campus',
+								'Mafikeng'  => 'Mafikeng',
+								'Vaal'    => 'Vaal',
+								'Potch'   => 'Potch');
+  
+  $title_options = array(''=>'Title',
+								'Mr'  => 'Mr',
+								'Ms'    => 'Ms',
+								'Dr'   => 'Dr',
+								'Prof' => 'Prof');
+ 
+		$surname = array('type' => 'text',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'surname');
+
+		
+		$initial = array('type' => 'text',
+							'class' =>'form-control',
+							'style' =>'text-transform:uppercase',
+							'required' => 'required',
+							'name' => 'initial');		
+			
+		$studentnumber = array('type' => 'text',
+							'maxlength' => '8',
+							'role' => 'form',
+							'pattern' => '[0-9]{8}',
+							'title' => 'Strictly student number',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'phonenumber'); 
 
 	$surname = array('type' => 'text',
 						'class' =>'form-control',
 						'required' => 'required',
 						'name' => 'surname');
-
-	$initial = array('type' => 'text',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'initial');		
+		
 		
 	$phonenumber = array('type' => 'number',
 						'size' => '10',
@@ -59,15 +80,27 @@
 						'required' => 'required',
 						'name' => 'phonenumber'); 
 
-	$email = array('type' => 'email',
+	$email1 = array('type' => 'email',
 						'class' =>'form-control',
 						'required' => 'required',
+						'id' => 'email1',
+						'name' => 'email');
+	
+	$email2 = array('type' => 'email',
+						'class' =>'form-control',
+						'required' => 'required',
+						'id' => 'email2',
 						'name' => 'email'); 
 
 	$title = array('type' => 'text',
 						'class' =>'form-control',
 						'required' => 'required',
 						'name' => 'title'); 
+						
+	$email = array('type' => 'email',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'email'); 
 
 	$dropdownstyles ='class = "form-control" required';
 	
@@ -81,45 +114,290 @@
 							'FNAS' => 'FNAS',
 							'Theology' => 'Theology');
 
-			$lab_options = array('big'=>'big',
-								'small'=>'small');
+$country_options = array(''=>'Select your nationality',
+							'south african' => 'South African',
+							'afghan' => 'Afghan',
+							'albanian' => 'Albanian',
+							'algerian' => 'Algerian',
+							'american' => 'American',
+							'andorran' => 'Andorran',
+							'angolan' => 'Angolan',
+							'antiguans' => 'Antiguans',
+							'argentinean' => 'Argentinean',
+							'armenian' => 'Armenian',
+							'australian' => 'Australian',
+							'austrian' => 'Austrian',
+							'azerbaijani' => 'Azerbaijani',
+							'bahamian' => 'Bahamian',
+							'bahraini' => 'Bahraini',
+							'bangladeshi' => 'Bangladeshi',
+							'barbadian' => 'Barbadian',
+							'barbudans' => 'Barbudans',
+							'batswana' => 'Batswana',
+							'belarusian' => 'Belarusian',
+							'belgian' => 'Belgian',
+							'belizean' => 'Belizean',
+							'beninese' => 'Beninese',
+							'bhutanese' => 'Bhutanese',
+							'bolivian' => 'Bolivian',
+							'bosnian' => 'Bosnian',
+							'brazilian' => 'Brazilian',
+							'british' => 'British',
+							'bruneian' => 'Bruneian',
+							'bulgarian' => 'Bulgarian',
+							'burkinabe' => 'Burkinabe',
+							'burmese' => 'Burmese',
+							'burundian' => 'Burundian',
+							'cambodian' => 'Cambodian',
+							'cameroonian' => 'Cameroonian',
+							'canadian' => 'Canadian',
+							'cape verdean' => 'Cape Verdean',
+							'central african' => 'Central African',
+							'chadian' => 'Chadian',
+							'chilean' => 'Chilean',
+							'chinese' => 'Chinese',
+							'colombian' => 'Colombian',
+							'comoran' => 'Comoran',
+							'congolese' => 'Congolese',
+							'costa rican' => 'Costa Rican',
+							'croatian' => 'Croatian',
+							'cuban' => 'Cuban',
+							'cypriot' => 'Cypriot',
+							'czech' => 'Czech',
+							'danish' => 'Danish',
+							'djibouti' => 'Djibouti',
+							'dominican' => 'Dominican',
+							'dutch' => 'Dutch',
+							'east timorese' => 'East Timorese',
+							'ecuadorean' => 'Ecuadorean',
+							'egyptian' => 'Egyptian',
+							'emirian' => 'Emirian',
+							'equatorial guinean' => 'Equatorial Guinean',
+							'eritrean' => 'Eritrean',
+							'estonian' => 'Estonian',
+							'ethiopian' => 'Ethiopian',
+							'fijian' => 'Fijian',
+							'filipino' => 'Filipino',
+							'finnish' => 'Finnish',
+							'french' => 'French',
+							'gabonese' => 'Gabonese',
+							'gambian' => 'Gambian',
+							'georgian' => 'Georgian',
+							'german' => 'German',
+							'ghanaian' => 'Ghanaian',
+							'greek' => 'Greek',
+							'grenadian' => 'Grenadian',
+							'guatemalan' => 'Guatemalan',
+							'guinea-bissauan' => 'Guinea-Bissauan',
+							'guinean' => 'Guinean',
+							'guyanese' => 'Guyanese',
+							'haitian' => 'Haitian',
+							'herzegovinian' => 'Herzegovinian',
+							'honduran' => 'Honduran',
+							'hungarian' => 'Hungarian',
+							'icelander' => 'Icelander',
+							'indian' => 'Indian',
+							'indonesian' => 'Indonesian',
+							'iranian' => 'Iranian',
+							'iraqi' => 'Iraqi',
+							'irish' => 'Irish',
+							'israeli' => 'Israeli',
+							'italian' => 'Italian',
+							'ivorian' => 'Ivorian',
+							'jamaican' => 'Jamaican',
+							'japanese' => 'Japanese',
+							'jordanian' => 'Jordanian',
+							'kazakhstani' => 'Kazakhstani',
+							'kenyan' => 'Kenyan',
+							'kittian and nevisian' => 'Kittian and Nevisian',
+							'kuwaiti' => 'Kuwaiti',
+							'kyrgyz' => 'Kyrgyz',
+							'laotian' => 'Laotian',
+							'latvian' => 'Latvian',
+							'lebanese' => 'Lebanese',
+							'liberian' => 'Liberian',
+							'libyan' => 'Libyan',
+							'liechtensteiner' => 'Liechtensteiner',
+							'lithuanian' => 'Lithuanian',
+							'luxembourger' => 'Luxembourger',
+							'macedonian' => 'Macedonian',
+							'malagasy' => 'Malagasy',
+							'malawian' => 'Malawian',
+							'malaysian' => 'Malaysian',
+							'maldivan' => 'Maldivan',
+							'malian' => 'Malian',
+							'maltese' => 'Maltese',
+							'marshallese' => 'Marshallese',
+							'mauritanian' => 'Mauritanian',
+							'mauritian' => 'Mauritian',
+							'mexican' => 'Mexican',
+							'micronesian' => 'Micronesian',
+							'moldovan' => 'Moldovan',
+							'monacan' => 'Monacan',
+							'mongolian' => 'Mongolian',
+							'moroccan' => 'Moroccan',
+							'mosotho' => 'Mosotho',
+							'motswana' => 'Motswana',
+							'mozambican' => 'Mozambican',
+							'namibian' => 'Namibian',
+							'nauruan' => 'Nauruan',
+							'nepalese' => 'Nepalese',
+							'new zealander' => 'New Zealander',
+							'ni-vanuatu' => 'Ni-Vanuatu',
+							'nicaraguan' => 'Nicaraguan',
+							'nigerien' => 'Nigerien',
+							'north korean' => 'North Korean',
+							'northern irish' => 'Northern Irish',
+							'norwegian' => 'Norwegian',
+							'omani' => 'Omani',
+							'pakistani' => 'Pakistani',
+							'palauan' => 'Palauan',
+							'panamanian' => 'Panamanian',
+							'papua new guinean' => 'Papua New Guinean',
+							'paraguayan' => 'Paraguayan',
+							'peruvian' => 'Peruvian',
+							'polish' => 'Polish',
+							'portuguese' => 'Portuguese',
+							'qatari' => 'Qatari',
+							'romanian' => 'Romanian',
+							'russian' => 'Russian',
+							'rwandan' => 'Rwandan',
+							'saint lucian' => 'Saint Lucian',
+							'salvadoran' => 'Salvadoran',
+							'samoan' => 'Samoan',
+							'san marinese' => 'San Marinese',
+							'sao tomean' => 'Sao Tomean',
+							'saudi' => 'Saudi',
+							'scottish' => 'Scottish',
+							'senegalese' => 'Senegalese',
+							'serbian' => 'Serbian',
+							'seychellois' => 'Seychellois',
+							'sierra leonean' => 'Sierra Leonean',
+							'singaporean' => 'Singaporean',
+							'slovakian' => 'Slovakian',
+							'slovenian' => 'Slovenian',
+							'solomon islander' => 'Solomon Islander',
+							'somali' => 'Somali',
+							'south korean' => 'South Korean',
+							'spanish' => 'Spanish',
+							'sri lankan' => 'Sri Lankan',
+							'sudanese' => 'Sudanese',
+							'surinamer' => 'Surinamer',
+							'swazi' => 'Swazi',
+							'swedish' => 'Swedish',
+							'swiss' => 'Swiss',
+							'syrian' => 'Syrian',
+							'taiwanese' => 'Taiwanese',
+							'tajik' => 'Tajik',
+							'tanzanian' => 'Tanzanian',
+							'thai' => 'Thai',
+							'togolese' => 'Togolese',
+							'tongan' => 'Tongan',
+							'trinidadian or tobagonian' => 'Trinidadian or Tobagonian',
+							'tunisian' => 'Tunisian',
+							'turkish' => 'Turkish',
+							'tuvaluan' => 'Tuvaluan',
+							'ugandan' => 'Ugandan',
+							'ukrainian' => 'Ukrainian',
+							'uruguayan' => 'Uruguayan',
+							'uzbekistani' => 'Uzbekistani',
+							'venezuelan' => 'Venezuelan',
+							'vietnamese' => 'Vietnamese',
+							'welsh' => 'Welsh',
+							'yemenite' => 'Yemenite',
+							'zambian' => 'Zambian',
+							'zimbabwean' => 'Zimbabwean');
 
-	$button = array('class' => 'btn btn-info',
+
+		$module = array('type' => 'text',
+							'maxlength' => '4',
+							'class' =>'form-control',
+							'style' =>'text-transform:uppercase',
+							'pattern' => '[A-Za-z]{4}',
+							'required' => 'required',
+							'title' => 'Eg. ACCM, WGMP',
+							'name' => 'initial');		
+		
+		$code = array('type' => 'number',
+							'type' => 'text',
+							'role' => 'form',
+							'maxlength' => '3',
+							'pattern' => '[0-9]{3}',
+							'title' => 'Three numbers eg. 111, 121',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'code'); 
+
+	$button = array('class' => 'btn btn-info disabled',
 					'type'=>'submit',
+					'id'=>'submit_button',
+				//	' disabled'=>' disabled',
 						'content'=>'Save');
 ?>
 	  
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  
 	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
-	  <?= form_label('Student number:', 'Student Number');?>
-	  <?= form_input($student_number);?>
-	  <?= form_label('Intials', 'Intials');?>
-	  <?= form_input($surname);?>
-	  <?= form_label('Title', '');?>
+	  <h3>Student Info:</h3> 
+		<hr>
+		<div class="form-row">
+		  <div class="form-group col-md-6">					
+		<?= form_dropdown('campus',$campus_options,'$campus',$dropdownstyles);?>
+		 </div>
+		 <div class="form-group col-md-6">			
+		<?= form_dropdown('Title',$title_options,'$faculty',$dropdownstyles);?> 
+		 </div>
+		</div>
+	<?= form_label('Student No', '');?>
+	  <?= form_input($studentnumber);?>
+	  <div class="form-row">
+		<div class="form-group col-md-4">					
+	  <?= form_label('Initial', '');?>
 	  <?= form_input($initial);?>
-	  <?= form_label('Nationality:', 'Nationality');?>
-	  <?= form_input($phonenumber);?>
-	  <?= form_label('ID no', 'ID no:');?>
+	    </div>
+		<div class="form-group col-md-8">
+		<?= form_label('Last name', 'Lastname');?>
+		<?= form_input($surname);?>
+		</div>
+	</div>
+	  
+	 <?= form_dropdown('Nationality',$country_options,'$country_options',$dropdownstyles);?>
+	 <br/>
+	  <?= form_label('ID/Passport Number', 'ID no:');?>
 	  <?= form_input($email);?>
 	  <?= form_label('Passsport', 'Passsport');?>
 	  <?= form_input($email);?>
 	  <?= form_label('Cell no', 'Cell no:');?>
 	  <?= form_input($email);?>
 	  <?= form_label('Email', 'Email');?>
-	  <?= form_input($email);?>
-	  <?= form_label('Email', 'Email');?>
-	  <?= form_input($email);?>
-	  <?= form_label('Module_name', 'Module name');?>
-	  <?= form_input($email);?>
-	  <?= form_label('Code', 'Code');?>
-	  <?= form_input($email);?>
 	  
-	  <?= form_label('Faculty:', '');?>
+     <?= form_input($email2);?>
+	 
+	 
+	 <br/>
+	 <h3>Lecturer Info:</h3> 
+	<hr>
+	
+	  <div class="form-row">
+		  <div class="form-group col-md-6">					
+		  <?= form_label('Module name', 'Module_name');?>
+		  <?= form_input($module);?>
+		  </div>
+		  <div class="form-group col-md-6">					
+		  <?= form_label('Code', 'Code');?>
+		  <?= form_input($code);?>
+		  </div>
+	  </div>
 	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
-	  
-	  <?= form_label('Lecturer', 'Lecturer');?>
+	  </br>
+	  <?= form_label('Lecturer Email', 'Lecturer');?>
 	  <?= form_input($email);?>
+	  <?= form_label('Lecturer Email', 'Lecturer');?>
+	  <?= form_input($email);?>
+	  
+	 <br/>
+	 <h3>Terms and conditions:</h3> 
+	<hr> 
 	  <?= form_label('Addtional Information', 'Addtional Information');?>
 	  <?= form_input($email);?>
 	  <?= form_label('Terrms and Conditions', 'Terrms and Conditions');?>
@@ -128,13 +406,11 @@
 	  <?= form_input($email);?>
 	  <?= form_label('Faculty', 'Faculty');?>
 	  <?= form_input($email);?>
+	 
 	  <br>
 	  <?= form_button($button);?>
       <?= form_close();?>
-	
-			
-			
-			
+		
 			
 		</div>
 			
