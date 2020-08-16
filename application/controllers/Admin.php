@@ -16,8 +16,8 @@ class Admin extends CI_Controller {
 	{
 		echo random_string('alnum',20);
 		$this->load->view('admin/basic');
-	
 	}
+
 		//--------------------------------------------------------------------
 
 }
