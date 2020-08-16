@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Nominate a student...</h2>
+            <h2 class="display-4">Nominate..</h2>
 			<div class="container">
 			
 			
@@ -70,6 +70,7 @@
 							'pattern' => '[A-Za-z]{4}',
 							'required' => 'required',
 							'title' => 'Eg. ACCM, WGMP',
+							'placeholder'=> 'ACCM',
 							'name' => 'initial');		
 		
 		$code = array('type' => 'number',
@@ -79,6 +80,7 @@
 							'pattern' => '[0-9]{3}',
 							'title' => 'Three numbers eg. 111, 121',
 							'class' =>'form-control',
+							'placeholder'=> '121',
 							'required' => 'required',
 							'name' => 'code'); 
 
@@ -86,6 +88,13 @@
 							'class' =>'form-control',
 							'required' => 'required',
 							'name' => 'email'); 
+							
+		$check = array ( 'class'=>'form-check-input',
+						 'type' => 'checkbox',
+						 'name' => 'tnc',
+						 'value' => 'signed',
+						 'required' => 'required',
+						);
  
 		$button = array('class' => 'btn btn-info',
 						'type'=>'submit',
@@ -94,7 +103,7 @@
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
 		
-		<h6>Lecturer Info:</h6> 
+		<h3>Lecturer Info:</h3> 
 		<hr>
 		<div class="form-row">
 		  <div class="form-group col-md-6">					
@@ -116,7 +125,7 @@
 		<?= form_input($lastname);?>
 		</div>
 	</div>
-	<h6>Student Info:</h6> 
+	<h3>Student Info:</h3> 
 	 <hr>
 	  <?= form_label('Student email', 'Email');?>
 	  <?= form_input($email);?>
@@ -132,6 +141,25 @@
 		  <?= form_input($code);?>
 		  </div>
 	  </div>
+	  
+	  <br/>
+	 <h3>Terms and conditions:</h3> 
+	<hr>
+		<p>Tutor:
+		Must have earned a final mark of 60% or more in the selected module
+		<br/>Have a good academic record
+		</p>
+	
+	  <p>The nominated Tutor complies with the minimum requirements set for Tutors as stated
+		above
+	</p>
+	 <p>I agree to meet with the nominated Tutor regularly and assign duties to her/him, and sign
+registers
+	</p>
+	 
+	  <?= form_input($check);?>
+	  <?= form_label('Agree', 'Agree');?>
+	  
 	  <br>
 	  <?= form_button($button);?>
       <?= form_close();?>

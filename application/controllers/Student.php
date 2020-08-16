@@ -18,6 +18,14 @@ class Student extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function nominated()
+	{
+		$this->load->view('template/header');
+		$this->load->view('student/nominated');
+		$this->load->view('template/footer');
+	}
+
+	
 	public function finished()
 	{
 		$this->load->library('email');
