@@ -89,10 +89,10 @@ class Student extends CI_Model {
 			$query = $this->db->query($sql);
 		}
 
-		public function accept_nomination($stu)
+		public function accept_nomination($stu= null)
 		{
 			$verdict = 'A'; //A = Accept , R = Reject
-			$link_id;
+			$link_id = 'qzjtDaKN7OgG5S4QbcFB';
 			
 			$sql = "UPDATE application
 					SET verdict = ?
