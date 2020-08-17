@@ -41,29 +41,8 @@ class Student extends CI_Controller {
 					'faculty' => $this->input->post('faculty',TRUE),
 					'module_name' => $this->input->post('module',TRUE),
 					'l_email' => $this->input->post('l_email',TRUE),
-					'module_code' => $this->input->post('code',TRUE)
-						);
-
-				echo $stu ['campus'],':Campus','<br>';
-				echo $stu ['s_title'],':Title','<br>';
-				echo $stu ['student_id'],':Student ID','<br>';
-				echo $stu ['s_initial'],':Intial','<br>';
-				echo $stu ['s_lastname'],':Lastname','<br>';
-				echo $stu ['current_program'],':Current Program','<br>';
-				echo $stu ['current_year'],':Current year','<br>';
-				echo $stu ['id_passport'],':ID/passport','<br>';
-				echo $stu ['nationality'],':Nationality','<br>';
-				echo $stu ['cell_no1'],':Cell No 1','<br>';
-				echo $stu ['cell_no2'],':Cell No 1','<br>';
-				echo $stu ['student_email'],':Email','<br>';
-				echo $stu ['campus'],':Campus','<br>';
-				
-				echo $stu ['module_name'],':Module Name','<br>';
-				echo $stu ['module_code'],':Module Code','<br>';
-				echo $stu ['l_email'],':Lecturer Email','<br>';
-				echo $stu ['faculty'],':Fuculty','<br>';
-				echo $stu ['memoir'],':Memoir','<br>';
-				
+					'module_code' => $this->input->post('code',TRUE));
+			
 		//echo $this->student->check_application();
 		//echo $this->student->apply();
 	}

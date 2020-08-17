@@ -40,20 +40,7 @@
 								'Ms'    => 'Ms',
 								'Dr'   => 'Dr',
 								'Prof' => 'Prof');
- 
-		$lastname = array('type' => 'text',
-							'class' =>'form-control',
-							'style' => 'text-transform: capitalize',
-							'required' => 'required',
-							'name' => 'surname');
-
 		
-		$initial = array('type' => 'text',
-							'class' =>'form-control',
-							'style' =>'text-transform:uppercase',
-							'required' => 'required',
-							'name' => 'initial');		
-			
 		$staffnumber = array('type' => 'text',
 							'maxlength' => '8',
 							'role' => 'form',
@@ -61,7 +48,26 @@
 							'title' => 'Strictly staff number',
 							'class' =>'form-control',
 							'required' => 'required',
-							'name' => 'phonenumber'); 
+							'name' => 'staff_no'); 
+
+		$initial = array('type' => 'text',
+							'class' =>'form-control',
+							'style' =>'text-transform:uppercase',
+							'required' => 'required',
+							'name' => 'initial');		
+			 
+		$lastname = array('type' => 'text',
+							'class' =>'form-control',
+							'style' => 'text-transform: capitalize',
+							'required' => 'required',
+							'name' => 'surname');
+		
+		$s_email = array('type' => 'email',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 's_email'); 
+		
+		
 		
 		$module = array('type' => 'text',
 							'maxlength' => '4',
@@ -71,7 +77,7 @@
 							'required' => 'required',
 							'title' => 'Eg. ACCM, WGMP',
 							'placeholder'=> 'ACCM',
-							'name' => 'initial');		
+							'name' => 'module');		
 		
 		$code = array('type' => 'number',
 							'type' => 'text',
@@ -84,10 +90,6 @@
 							'required' => 'required',
 							'name' => 'code'); 
 
-		$email = array('type' => 'email',
-							'class' =>'form-control',
-							'required' => 'required',
-							'name' => 'email'); 
 							
 		$check = array ( 'class'=>'form-check-input',
 						 'type' => 'checkbox',
@@ -101,7 +103,7 @@
 						'content'=>'Send Nomination');
 ?>
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
-	  <?= form_open('apply',$formhead);?>
+	  <?= form_open('lecturer/nominate',$formhead);?>
 		
 		<h3>Lecturer Info:</h3> 
 		<hr>
@@ -110,7 +112,7 @@
 		<?= form_dropdown('campus',$campus_options,'$campus',$dropdownstyles);?>
 		 </div>
 		 <div class="form-group col-md-6">			
-		<?= form_dropdown('Title',$title_options,'$faculty',$dropdownstyles);?> 
+		<?= form_dropdown('title',$title_options,'$title',$dropdownstyles);?> 
 		 </div>
 		</div>
 	<?= form_label('Staff No', '');?>
@@ -128,9 +130,9 @@
 	<h3>Student Info:</h3> 
 	 <hr>
 	  <?= form_label('Student email', 'Email');?>
-	  <?= form_input($email);?>
+	  <?= form_input($s_email);?>
 	  <?= form_label('Varify student email', 'Email');?>
-	  <?= form_input($email);?>
+	  <?= form_input($s_email);?>
 	  <div class="form-row">
 		  <div class="form-group col-md-6">					
 		  <?= form_label('Module name', 'Module_name');?>

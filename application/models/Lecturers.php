@@ -8,12 +8,12 @@ class Lecturers extends CI_Model {
                 $this->load->helper('string');
         }
 			
-		public function check_nomination($nomi = null)
+		public function check_nomination($lec)
 		{
-			$student_email = 'Something@that';
-			$module_name = 'ASSC' ;
-			$module_code = '112';
-			$staff_no = '22220';
+			$student_email = $lec['s_email'];
+			$module_name = $lec['module'];
+			$module_code = $lec['code'];
+			$staff_no = $lec['staff_no'];
 			
 			$sql = "SELECT * FROM application WHERE student_email = ? 
 												AND module_name = ?
@@ -23,19 +23,19 @@ class Lecturers extends CI_Model {
 			return $query->num_rows();
 		}
 		
-		public function nominate($nomi = null)
+		public function nominate($lec)
 		{
-			//$campus = $nomi['']
+			//$campus = $lec['']
 			$link_id = random_string('alnum',20);
-			$campus ='Camp Test';
-			$l_title = 'Mr Test';
-			$l_initial = 'L';
-			$l_lastname = 'Guyso';
-			$staff_no = '22220';
+			$campus = $lec['campus'];
+			$l_title = $lec['l_title'];
+			$l_initial = $lec['l_initial'];
+			$l_lastname = $lec['l_lastname'];
+			$staff_no = $lec['staff_no'];
 			
-			$student_email = 'Something@that';
-			$module_name = 'ASSC' ;
-			$code_code = '112';
+			$student_email = $lec['s_email'];
+			$module_name = $lec['module'];
+			$code_code = $lec['code'];
 			$app_type = 'N'; //N = Nomination , A = Application
 			
 			

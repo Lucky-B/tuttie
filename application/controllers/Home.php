@@ -16,10 +16,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('lecturers');
 		$this->load->model('students');
-		//echo $this->lecturer->check_nomination(); //
-		//echo $this->lecturer->nominate();
-		//echo $this->lecturer->accept_application();
-		//echo $this->lecturer->reject_application();
+		
 		
 		$this->load->view('template/header');
 		$this->load->view('template/index');
