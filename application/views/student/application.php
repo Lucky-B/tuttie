@@ -305,17 +305,17 @@ $phonenumber_2 = array('type' => 'number',
 						'required' => 'required',
 						'name' => 'phonenumber_2'); 
 
-		$email_1 = array('type' => 'email',
+		$s_email = array('type' => 'email',
 						'class' =>'form-control',
 						'required' => 'required',
 						'id' => 'email1',
-						'name' => 'email');
+						'name' => 's_email');
 		
-		$email_2 = array('type' => 'email',
+		$l_email = array('type' => 'email',
 						'class' =>'form-control',
 						'required' => 'required',
 						'id' => 'email2',
-						'name' => 'email'); 
+						'name' => 'l_email'); 
 
 		$title = array('type' => 'text',
 						'class' =>'form-control',
@@ -440,11 +440,11 @@ $faculty_options = array(''=>'Select the faculty',
 	  <?= form_input($phonenumber_2);?>
 	  <?= form_label('Email', 'Email');?>
 	  
-     <?= form_input($email_2);?>
+     <?= form_input($s_email);?>
 	 
 	 
 	 <br/>
-	 <h3>Lecturer Info:</h3> 
+	 <h3>Lecturer Info:</h3>
 	<hr>
 	  <div class="form-row">
 		<div class="form-group col-md-4">					
@@ -459,9 +459,9 @@ $faculty_options = array(''=>'Select the faculty',
 	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
 	  </br>
 	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($email_1);?>
+	  <?= form_input($l_email);?>
 	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($email_2);?>
+	  <?= form_input($l_email);?>
 	  
 	 <br/>
 	 <h3>Terms and conditions:</h3> 
