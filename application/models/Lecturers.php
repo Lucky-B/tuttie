@@ -1,21 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Lecturer extends CI_Model {
+class Lecturers extends CI_Model {
 
         public function __construct()
         {
                 $this->load->database();
                 $this->load->helper('string');
         }
-		
-		/* public function check_student_exists($student)
-		{
-			$sql = "SELECT * FROM registration WHERE student_no = ?";
-			$query = $this->db->query($sql, array($student));
-			return $query->num_rows();
-		}
-*/
-		
+			
 		public function check_nomination($nomi = null)
 		{
 			$student_email = 'Something@that';

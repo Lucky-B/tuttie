@@ -10,18 +10,77 @@ class Student extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 	}
-
+	
+		
 	public function index()
 	{
+		$this->load->model('students');
+		$this->students->check_application();
 		$this->load->view('template/header');
 		$this->load->view('student/application');
 		$this->load->view('template/footer');
 	}
 
-	public function nominated()
+	public function apply()
 	{
+		
+		$stu = array('campus' => $this->input->post('campus',TRUE),
+					's_initial' => $this->input->post('initial',TRUE),
+					's_lastname' => $this->input->post('surname',TRUE),
+					's_title' => $this->input->post('title',TRUE),
+					'nationality' => $this->input->post('Nationality',TRUE),
+					'student_id' => $this->input->post('studentnumber',TRUE),
+					'id_passport' => $this->input->post('id_passport',TRUE),
+					'cell_no1' => $this->input->post('phonenumber_1',TRUE),
+					'cell_no2' => $this->input->post('phonenumber_2',TRUE),
+					'student_email' => $this->input->post('email',TRUE),
+					'memoir' => $this->input->post('cv_desc',TRUE),
+					'current_program' => $this->input->post('degree',TRUE),
+					'current_year' => $this->input->post('current_year',TRUE),
+					'campus' => $this->input->post('campus',TRUE),
+					'faculty' => $this->input->post('faculty',TRUE),
+					'module_name' => $this->input->post('module',TRUE),
+					'module_code' => $this->input->post('code',TRUE)
+						);
+				echo $stu ['campus'],':Campus','<br>';
+				echo $stu ['s_title'],':Title','<br>';
+				echo $stu ['s_initial'],':Intial','<br>';
+				echo $stu ['s_lastname'],':Lastname','<br>';
+				echo $stu ['student_id'],':Student ID','<br>';
+				
+				echo $stu ['nationality'],':Nationality','<br>';
+				echo $stu ['id_passport'],':ID/passport','<br>';
+				echo $stu ['cell_no1'],':Cell No 1','<br>';
+				echo $stu ['cell_no2'],':Cell No 1','<br>';
+				echo $stu ['student_email'],':Email','<br>';
+				echo $stu ['current_program'],':Current Program','<br>';
+				echo $stu ['current_year'],':Current year','<br>';
+				echo $stu ['campus'],':Campus','<br>';
+				echo $stu ['faculty'],':Fuculty','<br>';
+				echo $stu ['module_name'],':Module Name','<br>';
+				echo $stu ['module_code'],':Module Code','<br>';
+				echo $stu ['memoir'],':Memoir','<br>';
+				
+		//echo $this->student->check_application();
+		//echo $this->student->apply();
+	}
+	
+	public function accept()
+	{
+		
+		//echo $this->student->accept_nomination();
+		
 		$this->load->view('template/header');
-		$this->load->view('student/nominated');
+		//$this->load->view('student/nominated');
+		$this->load->view('template/footer');
+	}
+
+	public function reject()
+	{
+		//echo $this->student->reject_nomination();
+	
+		$this->load->view('template/header');
+		//$this->load->view('student/nominated');
 		$this->load->view('template/footer');
 	}
 

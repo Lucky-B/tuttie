@@ -14,18 +14,12 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->model('lecturer');
-		$this->load->model('student');
+		$this->load->model('lecturers');
+		$this->load->model('students');
 		//echo $this->lecturer->check_nomination(); //
 		//echo $this->lecturer->nominate();
 		//echo $this->lecturer->accept_application();
 		//echo $this->lecturer->reject_application();
-		
-		
-		//echo $this->student->check_application();
-		//echo $this->student->apply();
-		//echo $this->student->accept_nomination();
-		//echo $this->student->reject_nomination();
 		
 		$this->load->view('template/header');
 		$this->load->view('template/index');

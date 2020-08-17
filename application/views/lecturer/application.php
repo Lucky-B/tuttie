@@ -101,7 +101,7 @@
 						'content'=>'Send Nomination');
 ?>
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
-	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
+	  <?= form_open('apply',$formhead);?>
 		
 		<h3>Lecturer Info:</h3> 
 		<hr>

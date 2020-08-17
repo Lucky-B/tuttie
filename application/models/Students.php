@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Student extends CI_Model {
+class Students extends CI_Model {
 
         public function __construct()
         {
@@ -8,13 +8,6 @@ class Student extends CI_Model {
 				$this->load->helper('string');
         }
 		
-		/* public function check_student_exists($student)
-		{
-			$sql = "SELECT * FROM registration WHERE student_no = ?";
-			$query = $this->db->query($sql, array($student));
-			return $query->num_rows();
-		}
-*/	
 		public function check_application($aply = null)
 		{
 			$student_email = 'Something@that';
