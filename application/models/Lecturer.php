@@ -5,6 +5,7 @@ class Lecturer extends CI_Model {
         public function __construct()
         {
                 $this->load->database();
+                $this->load->helper('string');
         }
 		
 		/* public function check_student_exists($student)
@@ -15,55 +16,63 @@ class Lecturer extends CI_Model {
 		}
 */
 		
-		public function check_nomination($link)
+		public function check_nomination($nomi = null)
 		{
-			$sql = "SELECT * FROM registration WHERE student_no = ?";
-			$query = $this->db->query($sql, array($link));
-			return $query->row();
+			$student_email = 'Something@that';
+			$module_name = 'ASSC' ;
+			$module_code = '112';
+			$staff_no = '22220';
+			
+			$sql = "SELECT * FROM application WHERE student_email = ? 
+												AND module_name = ?
+												AND module_code = ?
+												AND staff_no = ?";
+			$query = $this->db->query($sql, array($student_email,$module_name,$module_code,$staff_no ));
+			return $query->num_rows();
 		}
 		
-		public function nominate($stu)
+		public function nominate($nomi = null)
 		{
-			$student_no = $stu['num'];
-			$surname = $stu['surname'];
-			$initials = $stu['ini'];
-			$faculty = $stu['faculty'];
-			$year = $stu['year'];
-			$cell_no = $stu['phone'];
-			$registered = $stu['registered']; 
-			$password = $stu['password']; 
-			$email = $stu['email'];
-			$lab =$stu['lab'];
+			//$campus = $nomi['']
+			$link_id = random_string('alnum',20);
+			$campus ='Camp Test';
+			$l_title = 'Mr Test';
+			$l_initial = 'L';
+			$l_lastname = 'Guyso';
+			$staff_no = '22220';
 			
-			$sql ="INSERT INTO registration ( student_no, surname, initials, faculty, year, cell_no, registered, password, email, acc_activated, lab)
-					VALUES ( '$student_no', '$surname', '$initials', '$faculty', $year, '$cell_no', '$registered', '$password', '$email', 'N', '$lab' );"; 
+			$student_email = 'Something@that';
+			$module_name = 'ASSC' ;
+			$code_code = '112';
+			$app_type = 'N'; //N = Nomination , A = Application
+			
+			
+			
+			$sql ="INSERT INTO application ( link_id ,campus , l_title, l_initial , l_lastname , staff_no, student_email, module_name, module_code , app_type)
+					VALUES ( '$link_id', '$campus', '$l_title', '$l_initial', '$l_lastname', '$staff_no', '$student_email', '$module_name', '$code_code', '$app_type' );"; 
 			$query = $this->db->query($sql);
 		}
 
-		public function accept_application($stu)
+		public function accept_application($verdict= null)
 		{
-			$student_no = $stu['num'];
-			$time = $stu['Time'];
-			$day= $stu['Day'];
-			$acc_activated = $stu['card'];
+			$verdict = 'A'; //A = Accept , R = Reject
+			$link_id;
 			
-			$sql = "UPDATE registration
-					SET day = ?, time = ?, card_no = ? ,acc_activated = 'Y'
-					WHERE student_no = ?"; 
-			$query = $this->db->query($sql,array($day,$time,$acc_activated,$student_no));
+			$sql = "UPDATE application
+					SET verdict = ?
+					WHERE link_id = ?"; 
+			$query = $this->db->query($sql,array($verdict,$link_id));
 		}
 		
 		public function reject_application($stu)
 		{
-			$student_no = $stu['num'];
-			$time = $stu['Time'];
-			$day= $stu['Day'];
-			$acc_activated = $stu['card'];
+			$verdict = 'R'; //A = Accept , R = Reject
+			$link_id;
 			
-			$sql = "UPDATE registration
-					SET day = ?, time = ?, card_no = ? ,acc_activated = 'Y'
-					WHERE student_no = ?"; 
-			$query = $this->db->query($sql,array($day,$time,$acc_activated,$student_no));
+			$sql = "UPDATE application
+					SET verdict = ?
+					WHERE link_id = ?"; 
+			$query = $this->db->query($sql,array($verdict,$link_id));
 		}
 			
 }
