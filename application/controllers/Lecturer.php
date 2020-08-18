@@ -33,11 +33,16 @@ class Lecturer extends CI_Controller {
 					'module' => $this->input->post('module',TRUE),
 					'code' => $this->input->post('code',TRUE));
 		
-		if(($this->lecturers->check_nomination($lec))=== 0)
+		if(($this->lecturers->check_nomination($lec)) > 0)
 		{
 			
 			$this->lecturers->nominate($lec);
-		
+			$lec['accept'] = base_url('student/accept/'.$lec['link_id'].'');
+			$lec['reject'] = base_url('student/reject/'.$lec['link_id'].'');
+			$email_message = $this->load->view('template/email_nomination',$lec,true); 
+			$student_email = $lec['s_email'];
+			//echo $email_message;
+
 			$this->load->library('email');
 			$config['protocol'] = 'sendmail';
 			$config['mailpath'] = '/usr/sbin/sendmail';
@@ -59,9 +64,10 @@ class Lecturer extends CI_Controller {
 			$this->email->initialize($config);
 			
 			$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
-			$this->email->to('Luckybogatsu@gmail.com');
+			$this->email->to($student_email);
+			$this->email->cc('Luckybogatsu@gmail.com');
 			$this->email->subject('Tutor Nomination');
-			$this->email->message('Testing the email class.');
+			$this->email->message($email_message);
 
 			if($this->email->send())
 			{
@@ -72,14 +78,15 @@ class Lecturer extends CI_Controller {
 			else
 			{
 				$data = $this->email->print_debugger();
-				print_r($data);
+				//print_r($data);
+				echo "email not sent";
 			}
 			
 		}
 		
 		else
 		{
-			echo "Nomination is made";
+			echo "You have already done this Nomination";
 		}		
 	}
 

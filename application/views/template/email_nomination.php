@@ -115,7 +115,7 @@ table[class=body] .article {
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Greetings </p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Lectuerer <b><?=strtoupper($l_initial);?> <?=ucwords($l_lastname);?></b> has nominated you to be a tutor for the module <b><?=$module_name;?></b> <b><?=$module_code;?></b>. Do accept the nomination? Accepting a nomination does not mean you willl automatically be a tutor it is part of the application process.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Lectuerer <b><?=strtoupper($l_initial);?> <?=ucwords($l_lastname);?></b> has nominated you to be a tutor for the module <b><?=strtoupper($module);?></b> <b><?=$code;?></b>. Do accept the nomination? Accepting a nomination does not mean you willl automatically be a tutor it is part of the application process.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; min-width: 100%; width: 100%;" width="100%">
                           <tbody>
                             <tr>
