@@ -33,7 +33,7 @@ class Lecturer extends CI_Controller {
 					'module' => $this->input->post('module',TRUE),
 					'code' => $this->input->post('code',TRUE));
 		
-		if(($this->lecturers->check_nomination($lec)) > 0)
+		if(($this->lecturers->check_nomination($lec)) == 0)
 		{
 			
 			$this->lecturers->nominate($lec);
@@ -41,7 +41,7 @@ class Lecturer extends CI_Controller {
 			$lec['reject'] = base_url('student/reject/'.$lec['link_id'].'');
 			$email_message = $this->load->view('template/email_nomination',$lec,true); 
 			$student_email = $lec['s_email'];
-			//echo $email_message;
+			echo $email_message;
 
 			$this->load->library('email');
 			$config['protocol'] = 'sendmail';
@@ -65,10 +65,8 @@ class Lecturer extends CI_Controller {
 			
 			$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
 			$this->email->to($student_email);
-			$this->email->cc('Luckybogatsu@gmail.com');
 			$this->email->subject('Tutor Nomination');
 			$this->email->message($email_message);
-
 			if($this->email->send())
 			{
 				$this->load->view('template/header');
@@ -192,9 +190,7 @@ class Lecturer extends CI_Controller {
 			{
 				$this->lecturers->accept_application($lec);
 
-				$lec['accept'] = base_url('lecturer/accept/'.$lec['link_id'].'');
-				$lec['reject'] = base_url('lecturer/reject/'.$lec['link_id'].'');
-				$email_message = $this->load->view('template/email_nomination',$lec,true); 
+				$email_message = $this->load->view('template/email_nomination',$lec,true); //need to update message
 				echo $email_message;
 				
 				$this->load->library('email');
@@ -232,6 +228,7 @@ class Lecturer extends CI_Controller {
 				{
 					$data = $this->email->print_debugger();
 					echo "<br>;email not sent";
+					echo "email not sent wrong";
 				}
 				
 			}

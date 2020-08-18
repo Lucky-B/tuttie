@@ -19,7 +19,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+            <img class="img-fluid rounded-circle" src="<?= base_url();?>img/02.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
@@ -304,6 +304,8 @@ $phonenumber_2 = array('type' => 'number',
 						'class' =>'form-control',
 						'required' => 'required',
 						'id' => 'email2',
+						'readonly'=>'true',
+						'value' => ''.$stu->lecturere_email.'',
 						'name' => 'l_email'); 
 
 		$title = array('type' => 'text',
@@ -343,6 +345,8 @@ $faculty_options = array(''=>'Select the faculty',
 						'required' => 'required',
 						'placeholder'=> 'ACCM',
 						'title' => 'Eg. ACCM, WGMP',
+						'readonly'=>'true',
+						'value' => ''.$stu->module_name.'',
 						'name' => 'module');		
 		
 		$code = array('type' => 'number',
@@ -354,6 +358,8 @@ $faculty_options = array(''=>'Select the faculty',
 						'class' =>'form-control',
 						'placeholder'=> '121',
 						'required' => 'required',
+						'readonly'=>'true',
+						'value' => ''.$stu->module_code.'',
 						'name' => 'code'); 
 
 		$check = array ( 'class'=>'form-check-input',
@@ -373,6 +379,29 @@ $faculty_options = array(''=>'Select the faculty',
 						'title' => 'Please tell us why you should get this oppotunity ?',
 						'required' => 'required'
 						);
+	$l_initial = array('type' => 'text',
+						'class' =>'form-control',
+						'style' =>'text-transform:uppercase',
+						'required' => 'required',
+						'readonly'=>'true',
+						'value' => ''.$stu->l_initial.'',
+						'name' => 'initial');		
+		 
+	$l_lastname = array('type' => 'text',
+						'class' =>'form-control',
+						'style' => 'text-transform: capitalize',
+						'readonly'=>'true',
+						'required' => 'required',
+						'value' => ''.$stu->l_lastname.'',
+						'name' => 'surname');
+	
+	$l_title = array('type' => 'text',
+						'class' =>'form-control',
+						'style' => 'text-transform: capitalize',
+						'readonly'=>'true',
+						'required' => 'required',
+						'value' => ''.$stu->l_title.'',
+						'name' => 'surname');
 
 		$button = array('class' => 'btn btn-info',
 						'type'=>'submit',
@@ -382,9 +411,44 @@ $faculty_options = array(''=>'Select the faculty',
 	  
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  
-	  <?= form_open('student/apply',$formhead);?>
+	  <?= form_open('student/thankyou',$formhead);?>
+	   <h3>Lecturer Info:</h3>
+		<hr>
+		 <div class="form-row">
+		<div class="form-group col-md-3">					
+		  <?= form_label('Initial', '');?>
+		  <?= form_input($l_initial);?>
+			</div>
+			<div class="form-group col-md-3">
+			<?= form_label('Title', '');?>
+			<?= form_input($l_title);?>
+			</div>
+			<div class="form-group col-md-6">
+			<?= form_label('Last name', '');?>
+			<?= form_input($l_lastname);?>
+			</div>
+		</div>
+		
+		 <div class="form-row">
+			<div class="form-group col-md-4">					
+		  <?= form_label('Module', '');?>
+		  <?= form_input($module);?>
+			</div>
+			<div class="form-group col-md-8">
+			<?= form_label('Code', '');?>
+			<?= form_input($code);?>
+			</div>
+		</div>
+	 
+	  <?= form_label('Lecturer Email', 'Lecturer');?>
+	  <?= form_input($l_email);?>
+	  
 	  <h3>Student Info:</h3> 
 		<hr>
+		
+	
+		 <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
+	  </br>
 		<div class="form-row">
 		  <div class="form-group col-md-6">					
 		<?= form_dropdown('campus',$campus_options,'$campus',$dropdownstyles);?>
@@ -433,22 +497,7 @@ $faculty_options = array(''=>'Select the faculty',
 	 
 	 
 	 <br/>
-	 <h3>Lecturer Info:</h3>
-	<hr>
-	  <div class="form-row">
-		<div class="form-group col-md-4">					
-	  <?= form_label('Module', '');?>
-	  <?= form_input($module);?>
-	    </div>
-		<div class="form-group col-md-8">
-		<?= form_label('Code', '');?>
-		<?= form_input($code);?>
-		</div>
-	</div>
-	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
-	  </br>
-	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($l_email);?>
+	
 	  
 	 <br/>
 	 <h3>Terms and conditions:</h3> 

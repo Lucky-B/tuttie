@@ -21,10 +21,27 @@ class Students extends CI_Model {
 			$query = $this->db->query($sql, array($module_name,$module_code,$student_no ));
 			return $query->num_rows();
 		}
+		
+		public function check_link($link)
+		{
+			$link_id = $link['link_id'];
+			$sql = "SELECT * FROM application WHERE link_id = ?";
+			$query = $this->db->query($sql, array($link_id));
+			return $query->num_rows();
+		}
+		
+		public function get_data_vialink($link)
+		{
+			$link_id = $link['link_id'];
+			$sql = "SELECT * FROM application WHERE link_id = ?";
+			$query = $this->db->query($sql, array($link_id));
+			return $query->row();
+		}
+		
 
 		public function apply($stu)
 		{
-			$link_id = random_string('alnum',20);
+			$link_id = $stu['link_id'];;
 			$campus = $stu['campus'];
 			$s_title = $stu['s_title'];
 			$s_lastname = ucwords($stu['s_lastname']);
@@ -44,6 +61,7 @@ class Students extends CI_Model {
 			$memoir = $stu['memoir'];
 			$s_intials = strtoupper($stu['s_initial']);
 			$current_level = $stu['current_level'];
+			$lecturer_email =$stu['l_email'];
 			
 			$sql ="INSERT INTO application 
 								(link_id, 
@@ -64,7 +82,8 @@ class Students extends CI_Model {
 								 s_initial,
 								 current_year,
 								 current_program,
-								 current_level)
+								 current_level,
+								 lecturere_email)
 								 
 						VALUES ('$link_id',
 								'$campus',
@@ -84,7 +103,8 @@ class Students extends CI_Model {
 								'$s_intials',
 								'$current_year',
 								'$current_program',
-								'$current_level');"; 
+								'$current_level',
+								'$lecturer_email');"; 
 			$query = $this->db->query($sql);
 		}
 
