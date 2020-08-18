@@ -18,24 +18,25 @@
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+            <img class="img-fluid rounded-circle" src="<?= base_url();?>img/01.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Nominate..</h2>
+            <h2 class="display-4">Requested Nomination..</h2>
 			<div class="container">
 			
 			
 <?php
 	  $formhead = array('role' => 'form');
 	  $dropdownstyles ='class = "form-control" required';
-	  $campus_options = array(''=>'Campus',
+	  $campus_options = array(''.$stu->campus.''=>'Campus',
 								'Mafikeng'  => 'Mafikeng',
 								'Vaal'    => 'Vaal',
 								'Potch'   => 'Potch');
- 
-		$title_options = array(''=>'Title',
+		
+		
+		$title_options = array(''.$stu->l_title.''=>'Title',
 								'Mr'  => 'Mr',
 								'Ms'    => 'Ms',
 								'Dr'   => 'Dr',
@@ -47,22 +48,46 @@
 							'pattern' => '[0-9]{8}',
 							'title' => 'Strictly staff number',
 							'class' =>'form-control',
+							'value' => ''.$stu->staff_no.'',
 							'required' => 'required',
 							'name' => 'staff_no'); 
 
 		$initial = array('type' => 'text',
 							'class' =>'form-control',
-							'pattern' => '[A-Za-z]+',
 							'style' =>'text-transform:uppercase',
 							'required' => 'required',
+							'value' => ''.$stu->l_initial.'',
 							'name' => 'initial');		
 			 
 		$lastname = array('type' => 'text',
 							'class' =>'form-control',
-							'pattern' => '[A-Z a-z]+',
 							'style' => 'text-transform: capitalize',
 							'required' => 'required',
+							'value' => ''.$stu->l_lastname.'',
 							'name' => 'surname');
+		
+		$link = array('type' => 'hidden',
+							'class' =>'form-control',
+							'required' => 'required',
+							'readonly'=>'true',
+							'value' => ''.$stu->link_id.'',
+							'name' => 'link');		
+		
+		
+		$s_initial = array('type' => 'text',
+							'class' =>'form-control',
+							'style' =>'text-transform:uppercase',
+							'name' => 'initial',
+							'readonly'=>'true',
+							'value' => ''.$stu->s_initial.'');		
+			 
+		$s_lastname = array('type' => 'text',
+							'class' =>'form-control',
+							'style' => 'text-transform: capitalize',
+							'required' => 'required',
+							'name' => 'surname',
+							'readonly'=>'true',
+							'value' => ''.$stu->s_lastname.'');
 		
 		$studentnumber = array('type' => 'text',
 							'maxlength' => '8',
@@ -71,12 +96,16 @@
 							'title' => 'Strictly student number',
 							'class' =>'form-control',
 							'required' => 'required',
-							'name' => 'student_no'); 
+							'name' => 'student_no',
+							'readonly'=>'true',
+							'value' => ''.$stu->student_id.''
+							); 
 
 		
 		$s_email = array('type' => 'email',
 							'class' =>'form-control',
-							'required' => 'required',
+							'readonly'=>'true',
+							'value' => ''.$stu->student_email.'',
 							'name' => 's_email'); 
 		
 		
@@ -89,7 +118,9 @@
 							'required' => 'required',
 							'title' => 'Eg. ACCM, WGMP',
 							'placeholder'=> 'ACCM',
-							'name' => 'module');		
+							'name' => 'module',
+							'readonly'=>'true',
+							'value' => ''.$stu->module_name.'');		
 		
 		$code = array('type' => 'number',
 							'type' => 'text',
@@ -100,7 +131,9 @@
 							'class' =>'form-control',
 							'placeholder'=> '121',
 							'required' => 'required',
-							'name' => 'code'); 
+							'name' => 'code',
+							'readonly'=>'true',
+							'value' => ''.$stu->module_code.''); 
 
 							
 		$check = array ( 'class'=>'form-check-input',
@@ -115,7 +148,35 @@
 						'content'=>'Send Nomination');
 ?>
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
-	  <?= form_open('lecturer/nominate',$formhead);?>
+	  <?= form_open('lecturer/thankyou',$formhead);?>
+		<?= form_input($link);?>
+		<h3>Student Info:</h3> 
+	 <hr>
+	 <div class="form-row">
+		<div class="form-group col-md-4">					
+	  <?= form_label('Initial', '');?>
+	  <?= form_input($s_initial);?>
+	    </div>
+		<div class="form-group col-md-8">
+		<?= form_label('Last name', 'Lastname');?>
+		<?= form_input($s_lastname);?>
+		</div>
+	</div>
+	 <?= form_label('Student\'s Number', '');?>
+	  <?= form_input($studentnumber);?>
+	
+	  <?= form_label('Student email', 'Email');?>
+	  <?= form_input($s_email);?>
+	  <div class="form-row">
+		  <div class="form-group col-md-6">					
+		  <?= form_label('Module name', 'Module_name');?>
+		  <?= form_input($module);?>
+		  </div>
+		  <div class="form-group col-md-6">					
+		  <?= form_label('Code', 'Code');?>
+		  <?= form_input($code);?>
+		  </div>
+	  </div>
 		
 		<h3>Lecturer Info:</h3> 
 		<hr>
@@ -139,23 +200,7 @@
 		<?= form_input($lastname);?>
 		</div>
 	</div>
-	<h3>Student Info:</h3> 
-	 <hr>
-	 <?= form_label('Student\'s Number', '');?>
-	  <?= form_input($studentnumber);?>
 	
-	  <?= form_label('Student email', 'Email');?>
-	  <?= form_input($s_email);?>
-	  <div class="form-row">
-		  <div class="form-group col-md-6">					
-		  <?= form_label('Module name', 'Module_name');?>
-		  <?= form_input($module);?>
-		  </div>
-		  <div class="form-group col-md-6">					
-		  <?= form_label('Code', 'Code');?>
-		  <?= form_input($code);?>
-		  </div>
-	  </div>
 	  
 	  <br/>
 	 <h3>Terms and conditions:</h3> 

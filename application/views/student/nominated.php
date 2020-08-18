@@ -33,97 +33,7 @@
 <?php
   $formhead = array('role' => 'form');
   
-  $campus_options = array(''=>'Campus',
-								'Mafikeng'  => 'Mafikeng',
-								'Vaal'    => 'Vaal',
-								'Potch'   => 'Potch');
-  
-  $title_options = array(''=>'Title',
-								'Mr'  => 'Mr',
-								'Ms'    => 'Ms',
-								'Dr'   => 'Dr',
-								'Prof' => 'Prof');
- 
-		$surname = array('type' => 'text',
-							'class' =>'form-control',
-							'required' => 'required',
-							'name' => 'surname');
-
-		
-		$initial = array('type' => 'text',
-							'class' =>'form-control',
-							'style' =>'text-transform:uppercase',
-							'required' => 'required',
-							'name' => 'initial');		
-			
-		$studentnumber = array('type' => 'text',
-							'maxlength' => '8',
-							'role' => 'form',
-							'pattern' => '[0-9]{8}',
-							'title' => 'Strictly student number',
-							'class' =>'form-control',
-							'required' => 'required',
-							'name' => 'phonenumber'); 
-
-	$surname = array('type' => 'text',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'surname');
-		
-		
-	$phonenumber_1 = array('type' => 'number',
-						'size' => '10',
-						'role' => 'form',
-						'min' => '10000000',
-						'maxlength' => '10',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'phonenumber_1'); 
-	
-	$phonenumber_2 = array('type' => 'number',
-						'size' => '10',
-						'role' => 'form',
-						'min' => '10000000',
-						'maxlength' => '10',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'phonenumber_2'); 
-
-	$email_1 = array('type' => 'email',
-						'class' =>'form-control',
-						'required' => 'required',
-						'id' => 'email1',
-						'name' => 'email');
-	
-	$email_2 = array('type' => 'email',
-						'class' =>'form-control',
-						'required' => 'required',
-						'id' => 'email2',
-						'name' => 'email'); 
-
-	$title = array('type' => 'text',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'title'); 
-						
-	$id_passport = array('type' => 'text',
-							'class' =>'form-control',
-							'required' => 'required',
-							'name' => 'id_passport'); 
-
-	$dropdownstyles ='class = "form-control" required';
-	
-	$faculty_options = array(''=>'Select the faculty',
-							'FEMS'  => 'FEMS',
-							'Education'    => 'Education',
-							'Engineering'   => 'Engineering',
-							'Health' => 'Health Sciences',
-							'Humanities' => 'Humanities',
-							'Law' => 'Law',
-							'FNAS' => 'FNAS',
-							'Theology' => 'Theology');
-
-$country_options = array(''=>'Select your nationality',
+  $country_options = array(''=>'Select your nationality',
 							'south african' => 'South African',
 							'afghan' => 'Afghan',
 							'albanian' => 'Albanian',
@@ -316,28 +226,135 @@ $country_options = array(''=>'Select your nationality',
 							'yemenite' => 'Yemenite',
 							'zambian' => 'Zambian',
 							'zimbabwean' => 'Zimbabwean');
+  
+  $campus_options = array(''=>'Campus',
+							'Mafikeng'  => 'Mafikeng',
+							'Vaal'    => 'Vaal',
+							'Potch'   => 'Potch');
+  
+  $currentyear_options = array(''=>'Current Year',
+								'1'  => '1',
+								'2'  => '2',
+								'3'   => '3',
+								'4'   => '4',
+								'5'   => '5',
+								'6'   => '6',
+								'7'   => '7');
+  
+$level_options = array(''=>'Current level of Study',
+						'Undergraduate'  => 'Undergraduate',
+						'Honours'  => 'Honours',
+						'Masters'   => 'Masters',
+						'PhD'   => 'PhD');
+  
+  $title_options = array(''=>'Title',
+						'Mr'  => 'Mr',
+						'Ms'    => 'Ms',
+						'Dr'   => 'Dr',
+						'Prof' => 'Prof');
+ 		
+		$initial = array('type' => 'text',
+						'class' =>'form-control',
+						'pattern'=>'[A-Za-z]+',
+						'style' =>'text-transform:uppercase',
+						'required' => 'required',
+						'name' => 'initial');		
+	
+$studentnumber = array('type' => 'text',
+						'maxlength' => '8',
+						'role' => 'form',
+						'pattern' => '[0-9]{8}',
+						'title' => 'Strictly student number',
+						'class' =>'form-control',
+						'required' => 'required',
+						'name' => 'studentnumber'); 
 
+		$surname = array('type' => 'text',
+						'class' =>'form-control',
+						'pattern'=>'[A-Z a-z]+',
+						'style' =>'text-transform:capitalize',
+						'required' => 'required',
+						'name' => 'surname');
+		
+	
+$phonenumber_1 = array('type' => 'number',
+						'size' => '10',
+						'role' => 'form',
+						'min' => '10000000',
+						'maxlength' => '10',
+						'class' =>'form-control',
+						'required' => 'required',
+						'name' => 'phonenumber_1'); 
+
+$phonenumber_2 = array('type' => 'number',
+						'size' => '10',
+						'role' => 'form',
+						'min' => '10000000',
+						'maxlength' => '10',
+						'class' =>'form-control',
+						'name' => 'phonenumber_2'); 
+
+		$s_email = array('type' => 'email',
+						'class' =>'form-control',
+						'required' => 'required',
+						'id' => 'email1',
+						'name' => 's_email');
+		
+		$l_email = array('type' => 'email',
+						'class' =>'form-control',
+						'required' => 'required',
+						'id' => 'email2',
+						'name' => 'l_email'); 
+
+		$title = array('type' => 'text',
+						'class' =>'form-control',
+						'required' => 'required',
+						'name' => 'title'); 
+							
+	$id_passport = array('type' => 'text',
+						'class' =>'form-control',
+						'required' => 'required',
+						'name' => 'id_passport'); 
+
+	$dropdownstyles ='class = "form-control" required';
+	
+$faculty_options = array(''=>'Select the faculty',
+						'FEMS'  => 'FEMS',
+						'Education'    => 'Education',
+						'Engineering'   => 'Engineering',
+						'Health' => 'Health Sciences',
+						'Humanities' => 'Humanities',
+						'Law' => 'Law',
+						'FNAS' => 'FNAS',
+						'Theology' => 'Theology');
+	
+		$degree = array('type' => 'text',
+						'class' =>'form-control',
+						'style' =>'text-transform:Capitalize',
+						'placeholder'=> 'Bcom in Chartered Accountancy',
+						'required' => 'required',
+						'name' => 'degree');	
 
 		$module = array('type' => 'text',
-							'maxlength' => '4',
-							'class' =>'form-control',
-							'style' =>'text-transform:uppercase',
-							'pattern' => '[A-Za-z]{4}',
-							'required' => 'required',
-							'placeholder'=> 'ACCM',
-							'title' => 'Eg. ACCM, WGMP',
-							'name' => 'initial');		
+						'maxlength' => '4',
+						'class' =>'form-control',
+						'style' =>'text-transform:uppercase',
+						'pattern' => '[A-Za-z]{4}',
+						'required' => 'required',
+						'placeholder'=> 'ACCM',
+						'title' => 'Eg. ACCM, WGMP',
+						'name' => 'module');		
 		
 		$code = array('type' => 'number',
-							'type' => 'text',
-							'role' => 'form',
-							'maxlength' => '3',
-							'pattern' => '[0-9]{3}',
-							'title' => 'Three numbers eg. 111, 121',
-							'class' =>'form-control',
-							'placeholder'=> '121',
-							'required' => 'required',
-							'name' => 'code'); 
+						'type' => 'text',
+						'role' => 'form',
+						'maxlength' => '3',
+						'pattern' => '[0-9]{3}',
+						'title' => 'Three numbers eg. 111, 121',
+						'class' =>'form-control',
+						'placeholder'=> '121',
+						'required' => 'required',
+						'name' => 'code'); 
 
 		$check = array ( 'class'=>'form-check-input',
 						 'type' => 'checkbox',
@@ -345,8 +362,8 @@ $country_options = array(''=>'Select your nationality',
 						 'value' => 'signed',
 						 'required' => 'required'
 						);
-						
-		 $explainer = array('name'    => 'cv_desc',
+					
+	 $explainer = array('name'    => 'cv_desc',
 						'id'     => 'cv_desc',
 						'value'  > set_value('cv_desc'),
 						'rows'   => '5',
@@ -357,15 +374,15 @@ $country_options = array(''=>'Select your nationality',
 						'required' => 'required'
 						);
 
-	$button = array('class' => 'btn btn-info',
-					'type'=>'submit',
-					'id'=>'submit_button',
+		$button = array('class' => 'btn btn-info',
+						'type'=>'submit',
+						'id'=>'submit_button',
 						'content'=>'Save');
 ?>
 	  
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  
-	  <?= form_open('assist/addstudent_to_register/add_student',$formhead);?>
+	  <?= form_open('student/apply',$formhead);?>
 	  <h3>Student Info:</h3> 
 		<hr>
 		<div class="form-row">
@@ -373,7 +390,7 @@ $country_options = array(''=>'Select your nationality',
 		<?= form_dropdown('campus',$campus_options,'$campus',$dropdownstyles);?>
 		 </div>
 		 <div class="form-group col-md-6">			
-		<?= form_dropdown('Title',$title_options,'$faculty',$dropdownstyles);?> 
+		<?= form_dropdown('title',$title_options,'$title',$dropdownstyles);?> 
 		 </div>
 		</div>
 	<?= form_label('Student No', '');?>
@@ -388,39 +405,50 @@ $country_options = array(''=>'Select your nationality',
 		<?= form_input($surname);?>
 		</div>
 	</div>
+	  <div class="form-row">
+		<div class="form-group col-md-5">					
+	  <?= form_dropdown('current_year',$currentyear_options,'$campus',$dropdownstyles);?>
+	    </div>
+		<div class="form-group col-md-7">
+		<?= form_dropdown('current_level',$level_options,'$campus',$dropdownstyles);?> 
+		</div>
+	</div>
+	  
+	  <?= form_label('Current Program', 'Current Program');?>
+	  <?= form_input($degree);?>
+	   <br/>
 	  
 	 <?= form_dropdown('Nationality',$country_options,'$country_options',$dropdownstyles);?>
-	 <br/>
+		<br/>
 	  <?= form_label('ID/Passport Number', 'ID no:');?>
 	  <?= form_input($id_passport);?>
+	
 	  <?= form_label('Cell no 1', 'Cell no:');?>
 	  <?= form_input($phonenumber_1);?>
 	  <?= form_label('Cell no 2', 'Cell no:');?>
 	  <?= form_input($phonenumber_2);?>
 	  <?= form_label('Email', 'Email');?>
 	  
-     <?= form_input($email_2);?>
+     <?= form_input($s_email);?>
 	 
 	 
 	 <br/>
-	 <h3>Lecturer Info:</h3> 
+	 <h3>Lecturer Info:</h3>
 	<hr>
 	  <div class="form-row">
-		  <div class="form-group col-md-6">					
-		  <?= form_label('Module name', 'Module_name');?>
-		  <?= form_input($module);?>
-		  </div>
-		  <div class="form-group col-md-6">					
-		  <?= form_label('Code', 'Code');?>
-		  <?= form_input($code);?>
-		  </div>
-	  </div>
+		<div class="form-group col-md-4">					
+	  <?= form_label('Module', '');?>
+	  <?= form_input($module);?>
+	    </div>
+		<div class="form-group col-md-8">
+		<?= form_label('Code', '');?>
+		<?= form_input($code);?>
+		</div>
+	</div>
 	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
 	  </br>
 	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($email_1);?>
-	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($email_2);?>
+	  <?= form_input($l_email);?>
 	  
 	 <br/>
 	 <h3>Terms and conditions:</h3> 

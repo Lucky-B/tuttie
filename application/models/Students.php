@@ -8,42 +8,42 @@ class Students extends CI_Model {
 				$this->load->helper('string');
         }
 		
-		public function check_application($aply = null)
+		public function check_application($stu)
 		{
-			$student_email = 'Something@that';
-			$module_name = 'ASSC' ;
-			$module_code = '112';
-			$staff_no = '22220';
+			$module_name 	= strtoupper($stu['module_name']);
+			$module_code 	= $stu['module_code'];
+			$student_no 	= $stu['student_id'];
 			
-			$sql = "SELECT * FROM application WHERE student_email = ? 
-												AND module_name = ?
+			$sql = "SELECT * FROM application WHERE module_name = ?
 												AND module_code = ?
-												AND staff_no = ?";
-			$query = $this->db->query($sql, array($student_email,$module_name,$module_code,$staff_no ));
+												AND student_id = ?";
+
+			$query = $this->db->query($sql, array($module_name,$module_code,$student_no ));
 			return $query->num_rows();
 		}
 
-
-		public function apply($stu = null)
+		public function apply($stu)
 		{
-			//$campus = $nomi['']
 			$link_id = random_string('alnum',20);
-			$campus ='Camp Test';
-			$s_title = 'Ms';
-			$s_lastname = 'Molaga';
-			$student_id ='414';
-			$nationality ='Mzanzi';
-			$id_passport='8888888888';
-			$cell_no1 = '018';
-			$cell_no2 = '483';
-			$student_email = 'Something@that';
+			$campus = $stu['campus'];
+			$s_title = $stu['s_title'];
+			$s_lastname = ucwords($stu['s_lastname']);
+			$student_id = $stu['student_id'];
+			$nationality = ucwords($stu['nationality']);
+			$id_passport= $stu['id_passport'];
+			$cell_no1 = $stu['cell_no1'];
+			$cell_no2 = $stu['cell_no2'];
+			$student_email = $stu['student_email'];
 			$app_type = 'A'; //N = Nomination , A = Application
+			$current_year = $stu['current_year'] ;
+			$current_program = $stu['current_program'];
 
-			$module_name = 'ASSC';
-			$code_code = '112';
-			$faculty = 'Engeneering';
-			$memoir ='I have faith, I can do more for others';
-			
+			$module_name = strtoupper($stu['module_name']);
+			$code_code = $stu['module_code'];
+			$faculty = $stu['faculty'];
+			$memoir = $stu['memoir'];
+			$s_intials = strtoupper($stu['s_initial']);
+			$current_level = $stu['current_level'];
 			
 			$sql ="INSERT INTO application 
 								(link_id, 
@@ -60,8 +60,12 @@ class Students extends CI_Model {
 								 module_name, 
 								 module_code, 
 								 faculty, 
-								
-								 memoir)
+								 memoir,
+								 s_initial,
+								 current_year,
+								 current_program,
+								 current_level)
+								 
 						VALUES ('$link_id',
 								'$campus',
 								'$s_title', 
@@ -76,9 +80,11 @@ class Students extends CI_Model {
 								'$module_name', 
 								'$code_code', 
 								'$faculty', 
-								
-								'$memoir'
-								 );"; 
+								'$memoir',
+								'$s_intials',
+								'$current_year',
+								'$current_program',
+								'$current_level');"; 
 			$query = $this->db->query($sql);
 		}
 

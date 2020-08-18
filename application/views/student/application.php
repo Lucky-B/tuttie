@@ -241,32 +241,21 @@
 								'6'   => '6',
 								'7'   => '7');
   
-$level_options = array(''=>' Current level of Study',
+$level_options = array(''=>'Current level of Study',
 						'Undergraduate'  => 'Undergraduate',
 						'Honours'  => 'Honours',
 						'Masters'   => 'Masters',
 						'PhD'   => 'PhD');
-
-		$surname = array('type' => 'text',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'surname');
-
   
   $title_options = array(''=>'Title',
 						'Mr'  => 'Mr',
 						'Ms'    => 'Ms',
 						'Dr'   => 'Dr',
 						'Prof' => 'Prof');
- 
-		$surname = array('type' => 'text',
-						'class' =>'form-control',
-						'required' => 'required',
-						'name' => 'surname');
-
-		
+ 		
 		$initial = array('type' => 'text',
 						'class' =>'form-control',
+						'pattern'=>'[A-Za-z]+',
 						'style' =>'text-transform:uppercase',
 						'required' => 'required',
 						'name' => 'initial');		
@@ -282,6 +271,7 @@ $studentnumber = array('type' => 'text',
 
 		$surname = array('type' => 'text',
 						'class' =>'form-control',
+						'pattern'=>'[A-Z a-z]+',
 						'style' =>'text-transform:capitalize',
 						'required' => 'required',
 						'name' => 'surname');
@@ -302,7 +292,6 @@ $phonenumber_2 = array('type' => 'number',
 						'min' => '10000000',
 						'maxlength' => '10',
 						'class' =>'form-control',
-						'required' => 'required',
 						'name' => 'phonenumber_2'); 
 
 		$s_email = array('type' => 'email',
@@ -417,11 +406,11 @@ $faculty_options = array(''=>'Select the faculty',
 		</div>
 	</div>
 	  <div class="form-row">
-		<div class="form-group col-md-4">					
+		<div class="form-group col-md-5">					
 	  <?= form_dropdown('current_year',$currentyear_options,'$campus',$dropdownstyles);?>
 	    </div>
-		<div class="form-group col-md-8">
-		<?= form_dropdown('Current level of study',$level_options,'$campus',$dropdownstyles);?> 
+		<div class="form-group col-md-7">
+		<?= form_dropdown('current_level',$level_options,'$campus',$dropdownstyles);?> 
 		</div>
 	</div>
 	  
@@ -458,8 +447,6 @@ $faculty_options = array(''=>'Select the faculty',
 	</div>
 	  <?= form_dropdown('faculty',$faculty_options,'$faculty',$dropdownstyles);?>
 	  </br>
-	  <?= form_label('Lecturer Email', 'Lecturer');?>
-	  <?= form_input($l_email);?>
 	  <?= form_label('Lecturer Email', 'Lecturer');?>
 	  <?= form_input($l_email);?>
 	  
