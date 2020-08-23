@@ -76,9 +76,16 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+	
+	'username' => 'root',
+	'password' => '',
+	'database' => 'tuttie',
+	
+	/*
 	'username' => 'pxziavfo_tuttie',
 	'password' => 'j1!gb@EU6i#%',
 	'database' => 'pxziavfo_tuttie',
+	*/
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

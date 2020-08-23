@@ -86,11 +86,12 @@ class Lecturer extends CI_Controller {
 			}
 			else
 			{
+				/*
 				$data = $this->email->print_debugger();
-				//print_r($data);
+				print_r($data);
+				*/
 				$this->load->view('template/header');
-				echo "<h1>Seems to be a problem sending an email <br>
-				20967489@nwu.ac.za </h1>";
+				$this->load->view('template/email_failed');
 				$this->load->view('template/footer');
 			}
 			
@@ -151,10 +152,12 @@ class Lecturer extends CI_Controller {
 				}
 				else
 				{
+					/*
 					$data = $this->email->print_debugger();
+					print_r($data);
+					*/
 					$this->load->view('template/header');
-					echo "<h3>Seems to be a problem sending an email <br>
-					20967489@nwu.ac.za </h3>";
+					$this->load->view('template/email_failed');
 					$this->load->view('template/footer');
 				}
 				
@@ -256,9 +259,13 @@ class Lecturer extends CI_Controller {
 				}
 				else
 				{
+					/*
 					$data = $this->email->print_debugger();
-					echo "<br>;email not sent";
-					echo "email not sent wrong";
+					print_r($data);
+					*/
+					$this->load->view('template/header');
+					$this->load->view('template/email_failed');
+					$this->load->view('template/footer');
 				}
 				
 			}
