@@ -79,6 +79,10 @@
 							'required' => 'required',
 							'name' => 's_email'); 
 		
+			$l_email = array('type' => 'email',
+							'class' =>'form-control',
+							'required' => 'required',
+							'name' => 'l_email'); 
 		
 		
 		$module = array('type' => 'text',
@@ -114,7 +118,6 @@
 						'type'=>'submit',
 						'content'=>'Send Nomination');
 ?>
-	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
 	  <?= form_open('lecturer/nominate',$formhead);?>
 		
 		<h3>Lecturer Info:</h3> 
@@ -139,6 +142,8 @@
 		<?= form_input($lastname);?>
 		</div>
 	</div>
+	<?= form_label('Lecturer email', 'Email');?>
+	  <?= form_input($l_email);?>
 	<h3>Student Info:</h3> 
 	 <hr>
 	 <?= form_label('Student\'s Number', '');?>

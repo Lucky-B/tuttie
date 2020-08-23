@@ -73,7 +73,7 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-4">Lecturer...</h2>
-            <p>Get a tutor to liaise with students. Clear communication with students. Boost overall performance of students and partake in tutoriage.</p>
+            <p>Get a tutor to liaise with students. Clear communication with students. Boost overall performance of students and partake in tutorlage.</p>
 				<div class="col text-center">
 				<a href="<?= base_url();?>lecturer" class="btn btn-info btn-xl rounded-pill mt-5">Nominate</a>
 				</div>

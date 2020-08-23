@@ -36,11 +36,11 @@
 								'Potch'   => 'Potch');
 		
 		
-		$title_options = array(''.$stu->l_title.''=>'Title',
-								'Mr'  => 'Mr',
-								'Ms'    => 'Ms',
-								'Dr'   => 'Dr',
-								'Prof' => 'Prof');
+	$title_options = array(''.$stu->l_title.''=>'Title',
+							'Mr'  => 'Mr',
+							'Ms'    => 'Ms',
+							'Dr'   => 'Dr',
+							'Prof' => 'Prof');
 		
 		$staffnumber = array('type' => 'text',
 							'maxlength' => '8',
@@ -77,7 +77,7 @@
 		$s_initial = array('type' => 'text',
 							'class' =>'form-control',
 							'style' =>'text-transform:uppercase',
-							'name' => 'initial',
+							'name' => 's_initial',
 							'readonly'=>'true',
 							'value' => ''.$stu->s_initial.'');		
 			 
@@ -85,7 +85,7 @@
 							'class' =>'form-control',
 							'style' => 'text-transform: capitalize',
 							'required' => 'required',
-							'name' => 'surname',
+							'name' => 's_lastname',
 							'readonly'=>'true',
 							'value' => ''.$stu->s_lastname.'');
 		
@@ -134,7 +134,6 @@
 							'name' => 'code',
 							'readonly'=>'true',
 							'value' => ''.$stu->module_code.''); 
-
 							
 		$check = array ( 'class'=>'form-check-input',
 						 'type' => 'checkbox',

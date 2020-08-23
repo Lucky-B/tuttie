@@ -366,8 +366,9 @@ $faculty_options = array(''=>'Select the faculty',
 	 $explainer = array('name'    => 'cv_desc',
 						'id'     => 'cv_desc',
 						'value'  > set_value('cv_desc'),
-						'rows'   => '5',
+						'rows'   => '10',
 						'cols'   => '10',
+						'maxlength' => '500',
 						'style'  => 'width:100%',
 						'class'  => 'form-control',
 						'title' => 'Please tell us why you should get this oppotunity ?',
@@ -377,7 +378,7 @@ $faculty_options = array(''=>'Select the faculty',
 		$button = array('class' => 'btn btn-info',
 						'type'=>'submit',
 						'id'=>'submit_button',
-						'content'=>'Save');
+						'content'=>'Submit');
 ?>
 	  
 	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>

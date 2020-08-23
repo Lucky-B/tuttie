@@ -80,10 +80,10 @@ table[class=body] .article {
   .btn-primary table td:hover {
     background-color: #d5075d !important;
   }
-
+/*
   .btn-primary a:hover {
     background-color: #d5075d !important;
-    border-color: #d5075d !important;
+    border-color: #d5075d !important; */
   }
 }
 </style></head>
@@ -96,7 +96,7 @@ table[class=body] .article {
             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; width: 100%;" width="100%">
               <tr>
                 <td class="align-center" style="font-family: sans-serif; font-size: 14px; vertical-align: top; text-align: center;" valign="top" align="center">
-                 <h1 style="color: #06090f; font-family: sans-serif; line-height: 1.4; margin: 0; margin-bottom: 30px; font-size: 35px; font-weight: 300; text-align: center; text-transform: capitalize;">A student has asked to be nominated </h1>
+                 <h1 style="color: #06090f; font-family: sans-serif; line-height: 1.4; margin: 0; margin-bottom: 30px; font-size: 35px; font-weight: 300; text-align: center; text-transform: capitalize;">Nomination </h1>
                    <h2 style="color: #06090f; font-family: sans-serif; font-weight: 400; line-height: 1.4; margin: 0; margin-bottom: 30px;">To be a tutor: </h2>
                 </td>
               </tr>
@@ -114,8 +114,8 @@ table[class=body] .article {
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; width: 100%;" width="100%">
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Greetings </p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;"><b><?=strtoupper($s_initial);?> <?=ucwords($s_lastname);?></b> has asked to be nominate as a tutor for the module <b><?=strtoupper($module_name);?></b> <b><?=$module_code;?></b>. Do accept the request? Performing the nomination does not mean the student will automatically be a tutor it is part of the application process.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Great Staff !!! </p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;"><b><?=strtoupper($s_initial);?>  <?=ucwords($s_lastname);?></b> has been nominated to be a tutor for <b><?=$module_name;?></b> <b><?=$module_code;?></b>. Remember performing the nomination does not mean the student will automatically be a tutor it is part of the application process.<b>Student should please email a copy of your transcript to 22383034@g.nwu.ac.za</b> or your application will not be considered.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; min-width: 100%; width: 100%;" width="100%">
                           <tbody>
                             <tr>
@@ -123,11 +123,10 @@ table[class=body] .article {
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: auto; width: auto;">
                                   <tbody>
                                     <tr>
-                                      <tdalign="left"> <a href="<?=$accept;?>" target="_parent" style="border: solid 1px #ec0867; border-radius: 5px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-decoration: none; text-transform: capitalize; background-color: #3ea8cf; border-color: #3ea8cf; color: #ffffff;">accept Nomination</a> </tdalign="left"></tr></tbody></table></td>
+                                      <tdalign="center"> <a style="border: solid 1px #ec0867; border-radius: 5px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-decoration: none; text-transform: capitalize; background-color: #3ea8cf; border-color: #3ea8cf; color: #ffffff;">Nomination Accepted</a> </tdalign="left"></tr></tbody></table></td>
                                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top"> </td>
                                       
-                                      <td align="right" style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top"> <a href="<?=$reject;?>" target="_parent" style="border: solid 1px #ec0867; border-radius: 5px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-decoration: none; text-transform: capitalize; background-color: #7a08ec; border-color: #7a08ec; color: #ffffff;">Reject Nomination</a> </td>
-                                    </tr>
+                                      </tr>
                                     
                                   </tbody>
                                 </table>

@@ -111,7 +111,49 @@ class Students extends CI_Model {
 		public function accept_nomination($stu= null)
 		{
 			$verdict = 'A'; //A = Accept , R = Reject
-			$link_id = 'qzjtDaKN7OgG5S4QbcFB';
+			$link_id = $stu['link_id'];
+			
+			$campus  =$stu['campus'];
+			$faculty  =$stu['faculty'];
+			$title  = $stu['s_title'];
+			$initials =  $stu['s_initial'];
+			$lastname =  $stu['s_lastname'];		
+			$cell_no1 =  $stu['cell_no1'];
+			$cell_no2 =  $stu['cell_no2'];
+			$id_no =  $stu['id_passport'];
+			$student_email =  $stu['student_email'];
+			$current_program =  $stu['current_program'];
+			$current_year =  $stu['current_year'];
+			$nationality = $stu['nationality'];
+			$current_level=  $stu['current_level'];
+			$module =  $stu['module_name'];
+			$code= $stu['module_code'];
+			$memoir= $stu['memoir'];
+			
+			$sql = "UPDATE application
+					SET 
+					verdict = '$verdict',
+					 s_title = '$title', 
+					 s_lastname = '$lastname', 
+					 nationality = '$nationality', 
+					 id_passport = '$id_no',
+					 cell_no1 = '$cell_no1',
+					 cell_no2 = '$cell_no2',
+					 student_email = '$student_email', 
+					 faculty = '$faculty', 
+					 memoir = '$memoir',
+					 s_initial = '$initials',
+					 current_year = '$current_year',
+					 current_program = '$current_program',
+					 current_level = '$current_level'
+					WHERE link_id = '$link_id'"; 
+			$query = $this->db->query($sql);
+		}
+		
+		public function reject_nomination($stu)
+		{
+			$verdict = 'R'; //A = Accept , R = Reject
+			$link_id;
 			
 			$sql = "UPDATE application
 					SET verdict = ?
@@ -119,10 +161,10 @@ class Students extends CI_Model {
 			$query = $this->db->query($sql,array($verdict,$link_id));
 		}
 		
-		public function reject_nomination($stu)
+		public function reject_application($link)
 		{
 			$verdict = 'R'; //A = Accept , R = Reject
-			$link_id;
+			$link_id = $link['link_id'];
 			
 			$sql = "UPDATE application
 					SET verdict = ?

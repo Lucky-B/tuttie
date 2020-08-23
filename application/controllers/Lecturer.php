@@ -30,6 +30,7 @@ class Lecturer extends CI_Controller {
 					'l_lastname' => $this->input->post('surname',TRUE),
 					'student_no' => $this->input->post('student_no',TRUE),
 					's_email' => $this->input->post('s_email',TRUE),
+					'l_email' => $this->input->post('l_email',TRUE),
 					'module' => $this->input->post('module',TRUE),
 					'code' => $this->input->post('code',TRUE));
 		
@@ -40,9 +41,11 @@ class Lecturer extends CI_Controller {
 			$lec['accept'] = base_url('student/accept/'.$lec['link_id'].'');
 			$lec['reject'] = base_url('student/reject/'.$lec['link_id'].'');
 			$email_message = $this->load->view('template/email_nomination',$lec,true); 
+			
+			$data = $this->lecturers->get_data_vialink($lec);
+			$lectuere_email =$data->lecturere_email; 
 			$student_email = $lec['s_email'];
-			echo $email_message;
-
+            
 			$this->load->library('email');
 			$config['protocol'] = 'sendmail';
 			$config['mailpath'] = '/usr/sbin/sendmail';
@@ -72,19 +75,32 @@ class Lecturer extends CI_Controller {
 				$this->load->view('template/header');
 				$this->load->view('student/finished');
 				$this->load->view('template/footer');
+				
+				$this->email->clear();
+				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
+			    $this->email->to($lectuere_email);
+			    $this->email->subject('Tutor Nomination');
+			    $this->email->message('Thank you <br> The Nomination has been sent');
+				$this->email->send();
+		    
 			}
 			else
 			{
 				$data = $this->email->print_debugger();
 				//print_r($data);
-				echo "email not sent";
+				$this->load->view('template/header');
+				echo "<h1>Seems to be a problem sending an email <br>
+				20967489@nwu.ac.za </h1>";
+				$this->load->view('template/footer');
 			}
 			
 		}
 		
 		else
 		{
-			echo "You have already done this Nomination";
+			$this->load->view('template/header');
+			echo "<h1>You have already done this Nomination</h1>";
+			$this->load->view('template/footer');
 		}		
 	}
 
@@ -96,8 +112,11 @@ class Lecturer extends CI_Controller {
 			if(($this->lecturers->check_link($link_id)) === 1 )
 			{
 				$this->lecturers->reject_application($link_id);
-				echo "You have declined the nomination ";
-
+				$data = $this->lecturers->get_data_vialink($link_id);
+				$message = $this->load->view('lecturer/email_reject',$data,true);
+				$estudent =$data->student_email;
+				$electurer =$data->lecturere_email;				
+			
 				$this->load->library('email');
 				$config['protocol'] = 'sendmail';
 				$config['mailpath'] = '/usr/sbin/sendmail';
@@ -119,9 +138,10 @@ class Lecturer extends CI_Controller {
 				$this->email->initialize($config);
 				
 				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
-				$this->email->to('Luckybogatsu@gmail.com');
+				$this->email->to($estudent);
+				$this->email->to($electurer);
 				$this->email->subject('Tutor Nomination');
-				$this->email->message('Testing the email class.');
+				$this->email->message($message);
 
 				if($this->email->send())
 				{
@@ -132,14 +152,18 @@ class Lecturer extends CI_Controller {
 				else
 				{
 					$data = $this->email->print_debugger();
-					echo "<br>;email not sent";
-					//print_r($data);
+					$this->load->view('template/header');
+					echo "<h3>Seems to be a problem sending an email <br>
+					20967489@nwu.ac.za </h3>";
+					$this->load->view('template/footer');
 				}
 				
 			}
 			else
 			{
+				$this->load->view('template/header');
 				echo "Something is wrong with the link !!<br> Must update this part..";
+				$this->load->view('template/footer');
 			}
 		}
 		else
@@ -159,11 +183,13 @@ class Lecturer extends CI_Controller {
 				$data['stu'] = $this->lecturers->get_data_vialink($link_id);
 				$this->load->view('template/header');
 				$this->load->view('lecturer/accept',$data);
-				$this->load->view('template/footer');				
+				$this->load->view('template/footer');
 			}
 			else
 			{
-				echo "Something is wrong with the link !!<br> Must update this part..";
+				$this->load->view('template/header');
+				echo "<h1>You have already done this Nomination</h1>";
+				$this->load->view('template/footer');
 			}
 		}
 		else
@@ -182,6 +208,8 @@ class Lecturer extends CI_Controller {
 						'staff_no' => $this->input->post('staff_no',TRUE),
 						'l_initial' => $this->input->post('initial',TRUE),
 						'l_lastname' => $this->input->post('surname',TRUE),
+						's_initial' => $this->input->post('s_initial',TRUE),
+						's_lastname' => $this->input->post('s_lastname',TRUE),
 						'module_name' => $this->input->post('module',TRUE),
 						'module_code' => $this->input->post('code',TRUE)
 						);
@@ -189,9 +217,10 @@ class Lecturer extends CI_Controller {
 			if(($this->lecturers->check_link($lec))=== 1)
 			{
 				$this->lecturers->accept_application($lec);
-
-				$email_message = $this->load->view('template/email_nomination',$lec,true); //need to update message
-				echo $email_message;
+                $data = $this->lecturers->get_data_vialink($lec);
+				$email_message = $this->load->view('lecturer/email_accept',$data,true); //need to update message
+				$estudent =$data->student_email;
+				$electurer =$data->lecturere_email;
 				
 				$this->load->library('email');
 				$config['protocol'] = 'sendmail';
@@ -214,7 +243,8 @@ class Lecturer extends CI_Controller {
 				$this->email->initialize($config);
 				
 				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
-				$this->email->to('Luckybogatsu@gmail.com');
+				$this->email->to($estudent);
+				$this->email->to($electurer);
 				$this->email->subject('Tutor Nomination');
 				$this->email->message($email_message);
 

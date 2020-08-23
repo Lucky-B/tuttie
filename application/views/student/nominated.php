@@ -25,11 +25,8 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-4">Tutor Application:</h2>
-            
 			<div class="container">
-			
-			
-						
+
 <?php
   $formhead = array('role' => 'form');
   
@@ -226,7 +223,7 @@
 							'yemenite' => 'Yemenite',
 							'zambian' => 'Zambian',
 							'zimbabwean' => 'Zimbabwean');
-  
+
   $campus_options = array(''=>'Campus',
 							'Mafikeng'  => 'Mafikeng',
 							'Vaal'    => 'Vaal',
@@ -252,14 +249,7 @@ $level_options = array(''=>'Current level of Study',
 						'Ms'    => 'Ms',
 						'Dr'   => 'Dr',
 						'Prof' => 'Prof');
- 		
-		$initial = array('type' => 'text',
-						'class' =>'form-control',
-						'pattern'=>'[A-Za-z]+',
-						'style' =>'text-transform:uppercase',
-						'required' => 'required',
-						'name' => 'initial');		
-	
+
 $studentnumber = array('type' => 'text',
 						'maxlength' => '8',
 						'role' => 'form',
@@ -275,8 +265,7 @@ $studentnumber = array('type' => 'text',
 						'style' =>'text-transform:capitalize',
 						'required' => 'required',
 						'name' => 'surname');
-		
-	
+
 $phonenumber_1 = array('type' => 'number',
 						'size' => '10',
 						'role' => 'form',
@@ -298,6 +287,8 @@ $phonenumber_2 = array('type' => 'number',
 						'class' =>'form-control',
 						'required' => 'required',
 						'id' => 'email1',
+						'value' => ''.$stu->student_email.'',
+						'readonly'=>'true',
 						'name' => 's_email');
 		
 		$l_email = array('type' => 'email',
@@ -372,8 +363,9 @@ $faculty_options = array(''=>'Select the faculty',
 	 $explainer = array('name'    => 'cv_desc',
 						'id'     => 'cv_desc',
 						'value'  > set_value('cv_desc'),
-						'rows'   => '5',
+						'rows'   => '10',
 						'cols'   => '10',
+						'maxlength' => '500',
 						'style'  => 'width:100%',
 						'class'  => 'form-control',
 						'title' => 'Please tell us why you should get this oppotunity ?',
@@ -402,16 +394,42 @@ $faculty_options = array(''=>'Select the faculty',
 						'required' => 'required',
 						'value' => ''.$stu->l_title.'',
 						'name' => 'surname');
+						
+	$s_initial = array('type' => 'text',
+						'class' =>'form-control',
+						'style' =>'text-transform:uppercase',
+						'required' => 'required',
+						
+						'name' => 's_initial');
+	
+	$s_lastname = array('type' => 'text',
+						'class' =>'form-control',
+						'style' => 'text-transform: capitalize',
+						'required' => 'required',
+						'name' => 's_lastname');
+	
+	$s_title = array('type' => 'text',
+						'class' =>'form-control',
+						'style' => 'text-transform: capitalize',
+						'readonly'=>'true',
+						'required' => 'required',
+						'value' => ''.$stu->s_title.'',
+						'name' => 's_title');
+						
+	$link = array('type' => 'hidden',
+						'class' =>'form-control',
+						'required' => 'required',
+						'value' => ''.$stu->link_id.'',
+						'name' => 'link');					
 
 		$button = array('class' => 'btn btn-info',
 						'type'=>'submit',
 						'id'=>'submit_button',
 						'content'=>'Save');
 ?>
-	  
-	  <?= isset($attempt) ? "<i>Student:<h5>$attempt</h5>does not exist ?</i>":"";?>
-	  
+
 	  <?= form_open('student/thankyou',$formhead);?>
+	   <?= form_input($link);?>
 	   <h3>Lecturer Info:</h3>
 		<hr>
 		 <div class="form-row">
@@ -462,11 +480,11 @@ $faculty_options = array(''=>'Select the faculty',
 	  <div class="form-row">
 		<div class="form-group col-md-4">					
 	  <?= form_label('Initial', '');?>
-	  <?= form_input($initial);?>
+	  <?= form_input($s_initial);?>
 	    </div>
 		<div class="form-group col-md-8">
 		<?= form_label('Last name', 'Lastname');?>
-		<?= form_input($surname);?>
+		<?= form_input($s_lastname);?>
 		</div>
 	</div>
 	  <div class="form-row">
@@ -482,7 +500,7 @@ $faculty_options = array(''=>'Select the faculty',
 	  <?= form_input($degree);?>
 	   <br/>
 	  
-	 <?= form_dropdown('Nationality',$country_options,'$country_options',$dropdownstyles);?>
+	 <?= form_dropdown('nationality',$country_options,'$country_options',$dropdownstyles);?>
 		<br/>
 	  <?= form_label('ID/Passport Number', 'ID no:');?>
 	  <?= form_input($id_passport);?>
@@ -492,12 +510,10 @@ $faculty_options = array(''=>'Select the faculty',
 	  <?= form_label('Cell no 2', 'Cell no:');?>
 	  <?= form_input($phonenumber_2);?>
 	  <?= form_label('Email', 'Email');?>
-	  
      <?= form_input($s_email);?>
 	 
-	 
 	 <br/>
-	
+
 	  
 	 <br/>
 	 <h3>Terms and conditions:</h3> 
