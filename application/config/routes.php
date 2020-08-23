@@ -53,5 +53,5 @@ $route['default_controller'] = 'Home';
 $route['lecturer'] = 'Lecturer';
 $route['student'] = 'Student';
 $route['admin'] = 'Admin';
-$route['404_override'] = '';
+$route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;

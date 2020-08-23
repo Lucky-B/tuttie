@@ -100,7 +100,7 @@ class Lecturer extends CI_Controller {
 		else
 		{
 			$this->load->view('template/header');
-			echo "<h1>You have already done this Nomination</h1>";
+			$this->load->view('template/already_applied');
 			$this->load->view('template/footer');
 		}		
 	}
@@ -165,7 +165,7 @@ class Lecturer extends CI_Controller {
 			else
 			{
 				$this->load->view('template/header');
-				echo "Something is wrong with the link !!<br> Must update this part..";
+				$this->load->view('template/error_404');
 				$this->load->view('template/footer');
 			}
 		}
@@ -191,13 +191,13 @@ class Lecturer extends CI_Controller {
 			else
 			{
 				$this->load->view('template/header');
-				echo "<h1>You have already done this Nomination</h1>";
+				$this->load->view('template/error_404');
 				$this->load->view('template/footer');
 			}
 		}
 		else
 		{
-			echo "link is invalid ";
+			redirect('home');
 		}
 	}
 

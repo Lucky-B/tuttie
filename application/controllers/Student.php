@@ -11,8 +11,7 @@ class Student extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('students');
 	}
-	
-		
+
 	public function index()
 	{
 		$this->load->view('template/header');
@@ -104,7 +103,9 @@ class Student extends CI_Controller {
 		}	
 		else
 		{
-			echo "You have already Applied for this module";
+			$this->load->view('template/header');
+			$this->load->view('template/already_applied');
+			$this->load->view('template/footer');
 		}
 	}
 	
@@ -169,7 +170,7 @@ class Student extends CI_Controller {
 			else
 			{
 				$this->load->view('template/header');
-				echo "Something is wrong with the link !!<br> Must update this part..";
+				$this->load->view('template/error_404');
 				$this->load->view('template/footer');
 			}
 		}
@@ -195,12 +196,14 @@ class Student extends CI_Controller {
 			}
 			else
 			{
-				echo "Something is wrong with the link !!<br> Must update this part..";
+				$this->load->view('template/header');
+				$this->load->view('template/error_404');
+				$this->load->view('template/footer');
 			}
 		}
 		else
 		{
-			echo "link is invalid ";
+			redirect('home');
 		}
 	}
 
