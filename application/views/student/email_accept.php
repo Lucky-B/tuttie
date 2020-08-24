@@ -114,7 +114,7 @@ table[class=body] .article {
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; width: 100%;" width="100%">
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Great Staff !!! </p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Great Stuff !!! </p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;"><b><?=strtoupper($s_initial);?>  <?=ucwords($s_lastname);?></b> has been nominated to be a tutor for <b><?=$module_name;?></b> <b><?=$module_code;?></b>. Remember performing the nomination does not mean the student will automatically be a tutor it is part of the application process.<b>Student should please email a copy of your transcript to 22383034@g.nwu.ac.za</b> or your application will not be considered.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; min-width: 100%; width: 100%;" width="100%">
                           <tbody>

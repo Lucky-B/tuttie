@@ -44,7 +44,7 @@ class Lecturer extends CI_Controller {
 			
 			$data = $this->lecturers->get_data_vialink($lec);
 			$lectuere_email =$data->lecturere_email; 
-			$student_email = $lec['s_email'];
+			$student_email = $data->student_email;
             
 			$this->load->library('email');
 			$config['protocol'] = 'sendmail';
@@ -140,7 +140,7 @@ class Lecturer extends CI_Controller {
 				
 				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
 				$this->email->to($estudent);
-				$this->email->to($electurer);
+				$this->email->cc($electurer);
 				$this->email->subject('Tutor Nomination');
 				$this->email->message($message);
 
@@ -247,7 +247,7 @@ class Lecturer extends CI_Controller {
 				
 				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
 				$this->email->to($estudent);
-				$this->email->to($electurer);
+				$this->email->cc($electurer);
 				$this->email->subject('Tutor Nomination');
 				$this->email->message($email_message);
 

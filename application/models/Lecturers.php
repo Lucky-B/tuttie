@@ -67,11 +67,11 @@ class Lecturers extends CI_Model {
 			$code_code = $lec['code'];
 			$app_type = 'N'; //N = Nomination , A = Application
 			$student_no = $lec['student_no'];
-			$s_email = $lec['s_email'];
+			$lecture_email = $lec['l_email'];
 			
 			
 			$sql ="INSERT INTO application ( link_id ,campus , l_title, l_initial , l_lastname , staff_no, student_email, module_name, module_code , app_type, student_id, lecturere_email)
-					VALUES ( '$link_id', '$campus', '$l_title', '$l_initial', '$l_lastname', '$staff_no', '$student_email', '$module_name', '$code_code', '$app_type', '$student_no','$s_email' );"; 
+					VALUES ( '$link_id', '$campus', '$l_title', '$l_initial', '$l_lastname', '$staff_no', '$student_email', '$module_name', '$code_code', '$app_type', '$student_no','$lecture_email' );"; 
 			$query = $this->db->query($sql);
 		}
 		

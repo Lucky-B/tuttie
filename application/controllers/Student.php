@@ -145,7 +145,7 @@ class Student extends CI_Controller {
 				
 				$this->email->from('no-reply@tuttie.co.za', 'Tutor Services');
 				$this->email->to($estudent);
-				$this->email->to($electurer);
+				$this->email->cc($electurer);
 				$this->email->subject('Tutor Nomination');
 				$this->email->message($message);
 
