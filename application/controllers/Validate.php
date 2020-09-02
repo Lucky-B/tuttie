@@ -19,13 +19,13 @@ class Validate extends CI_Controller {
 			redirect('admin');
 		}
 				
-		$this->form_validation->set_rules('user','User name','required|max_length[8]');
+		$this->form_validation->set_rules('name','User name','required');
 		$this->form_validation->set_rules('pass','Password','required');
 		
 		if ($this->form_validation->run() == TRUE)
 		{
 			$name = $this->input->post('name',TRUE);
-			$pass = $this ->input->post('password',TRUE);
+			$pass = $this ->input->post('pass',TRUE);
 			$this->load->model('login');
 			if ($this->login->check_credentails($name,$pass))
 			{
@@ -34,21 +34,15 @@ class Validate extends CI_Controller {
 				$_SESSION['logged_in']    		 = (bool)true;
 				redirect('admin');
 			}
-			else //user does not exist
+			else //user does not exist or password is wrong
 			{
 				$this->login->check_credentails($name,$pass);
-				$attempt['user'] = $this->input->post('name',TRUE);
+				$attempt['name'] = $this->input->post('name',TRUE);
 				$attempt['pass'] = $this ->input->post('pass',TRUE);
-				$this->load->view('admin',$attempt);
+				redirect('admin/wrong');
 			}
 		}
-		else
-		{
-			$attempt['userid'] = $this->input->post('userid',TRUE);
-			$attempt['userpass'] = $this ->input->post('userpass',TRUE);
-			$this->load->view('admin',$attempt);
-		}		
-		
+			
 	}
 	
 }

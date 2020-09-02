@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -41,35 +41,37 @@
 	  
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>charts.html">
+        <a class="nav-link" href="<?= base_url()?>admin/index/1">
           <i class="fas fa-fw fa-chart-area"></i>
-		  
-          <span>Nominations</span> <sup>1</sup></a>
+          <span>Nominations</span> <sup><?=$nom;?></sup></a>
       </li>
+	  
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>charts.html">
+        <a class="nav-link" href="<?= base_url()?>admin/index/2">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Applications</span> <sup>1</sup></a>
+          <span>Applications</span> <sup><?=$aply?></sup></a>
       </li>
+  
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>charts.html">
+        <a class="nav-link" href="<?= base_url()?>admin/index/3">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Incompleted</span> <sup>1</sup></a>
+          <span>Incompleted</span> <sup><?=$incm;?></sup></a>
       </li>
+  
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>charts.html">
+        <a class="nav-link" href="<?= base_url()?>admin/index/4">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Rejected</span> <sup>1</sup></a>
+          <span>Rejected</span> <sup><?=$rjt;?></sup></a>
       </li>
     <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 	  
 	   <!-- Nav Item - logout -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>admin">
+        <a class="nav-link" href="<?= base_url()?>admin/logout">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Logout</span></a>
       </li>
@@ -99,8 +101,53 @@
         <div class="container-fluid">
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-		  
+		
+		<!--Table-->
+		<div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Application View</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Module</th>
+                      <th>Code</th>
+                      <th>Faculty</th>
+                      <th>Student Level</th>
+                      <th>Student</th>
+                      <th>Lecturer</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Module</th>
+                      <th>Code</th>
+                      <th>Faculty</th>
+                      <th>Student Level</th>
+                      <th>Student</th>
+                      <th>Lecturer</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+					<?php foreach ($info->result()  as $row): ?>
+                    <tr>
+                      <td><?= $row->module_name;?></td>
+                      <td><?= $row->module_code;?></td>
+                      <td><?= $row->faculty;?></td>
+                      <td><?= $row->current_level;?></td>
+                      <td><?= $row->s_lastname;?></td>
+                      <td><?= $row->l_lastname;?></td>
+                    </tr>
+					<?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
+		
         </div>
         <!-- /.container-fluid -->
 
@@ -148,14 +195,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url();?>vendor/jquery/jquery.min.js"></script>
+  <script src="<?= base_url();?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?= base_url();?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="<?= base_url();?>js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="<?= base_url();?>vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url();?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="<?= base_url();?>js/demo/datatables-demo.js"></script>
 
 </body>
 
