@@ -2,7 +2,7 @@
     <div class="masthead-content">
       <div class="container">
 	    <h1 class="masthead-heading mb-0">Tutoring </h1>
-        <h2 class="masthead-subheading mb-0">Reach Your Academic Goals</h2>
+        <h2 class="masthead-subheading mb-0">Dont Reach Your Academic Goals</h2>
 		<br>
 					  <div class="card-deck mb-3 text-center">
 					
