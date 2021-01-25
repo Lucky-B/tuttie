@@ -75,6 +75,20 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function view()
+	{
+		if(isset($this->session->userdata['logged_in']))
+		{
+			$this->load->view('template/header');
+			$this->load->view('admin/application_view');
+			$this->load->view('template/footer');
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();

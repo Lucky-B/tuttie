@@ -41,28 +41,28 @@
 	  
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>admin/index/1">
+        <a class="nav-link" href="<?= base_url()?>admin">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Nominations</span> <sup><?=$nom;?></sup></a>
       </li>
 	  
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>admin/index/2">
+        <a class="nav-link" href="<?= base_url()?>admin">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Applications</span> <sup><?=$aply?></sup></a>
       </li>
   
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>admin/index/3">
+        <a class="nav-link" href="<?= base_url()?>admin">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Incompleted</span> <sup><?=$incm;?></sup></a>
       </li>
   
   <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url()?>admin/index/4">
+        <a class="nav-link" href="<?= base_url()?>admin">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Rejected</span> <sup><?=$rjt;?></sup></a>
       </li>
@@ -118,6 +118,7 @@
                       <th>Student Level</th>
                       <th>Student</th>
                       <th>Lecturer</th>
+					  <th>View</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -128,8 +129,10 @@
                       <th>Student Level</th>
                       <th>Student</th>
                       <th>Lecturer</th>
+					  <th>View</th>
                     </tr>
                   </tfoot>
+				 
                   <tbody>
 					<?php foreach ($info->result()  as $row): ?>
                     <tr>
@@ -139,6 +142,10 @@
                       <td><?= $row->current_level;?></td>
                       <td><?= $row->s_lastname;?></td>
                       <td><?= $row->l_lastname;?></td>
+					  <td>
+					  <a href="admin/view/<?= $row->link_id; ?>" class="btn btn-info" role="button">View Application</a>
+                      </td>
+					 
                     </tr>
 					<?php endforeach; ?>
                   </tbody>
