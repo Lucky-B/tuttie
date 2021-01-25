@@ -79,9 +79,13 @@ class Admin extends CI_Controller {
 	{
 		if(isset($this->session->userdata['logged_in']))
 		{
+			/*get information based on hash.
+			Then query selected form 
+			*/
+			
 			$this->load->view('template/header');
 			$this->load->view('admin/application_view');
-			$this->load->view('template/footer');
+			//$this->load->view('template/footer');
 		}
 		else
 		{
