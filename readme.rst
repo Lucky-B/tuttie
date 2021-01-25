@@ -1,12 +1,13 @@
 ###################
 Tutoring-Appliction App
 ###################
-The first release will take online applications for tutoring.
-The application is designed to keep track of Tutors and analyse the students attendance.
-for a given task.
+The web application allows lecturers to nominate students as tutors.
+Students recieve an email to accept or decline the nomination.
+
+Once a choice is made both participants recieve an email. 
+The app has a back end to check on the list of applicants and view completed and incompleted froms.
 
 *******************
 Release Information
 *******************
-
-1st release Online application with admin panel..
+http://www.tuttie.co.za
