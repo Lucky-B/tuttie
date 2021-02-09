@@ -14,18 +14,18 @@
 <tbody>
 <tr>
 <td colspan="3" width="624">
-<p>Personal Information</p>
+<p><?= $verdict == 'R'? "<center><b>APPLICATION/NOMINATION HAS BEEN REJECTED</b></center>":"Personal Information";?></p>
 </td>
 </tr>
 <tr>
 <td width="300">
-<p>Surname:</p>
+<p>Surname:<br><b><?=$s_lastname;?></b></p>
 </td>
 <td width="121">
-<p>Initials:</p>
+<p>Initials:<br><b><?=$s_initial;?></b></p>
 </td>
 <td width="203">
-<p>Title:</p>
+<p>Title:<br><b><?=$s_title;?></b></p>
 </td>
 </tr>
 <tr>
@@ -33,41 +33,38 @@
 <p>Preferred name:</p>
 </td>
 <td colspan="2" width="324">
-<p>Nationality:</p>
+<p>Nationality:<br><b><?=$nationality;?></b></p>
 </td>
 </tr>
 <tr>
 <td width="300">
-<p>Student number:</p>
+<p>Student number:<br><b><?=$student_id;?></b>
+</p>
 </td>
 <td colspan="2" width="324">
-<p>ID no.:</p>
+<p>ID /Passport no:<br><b><?=$id_passport;?></b></p>
+</td>
+</tr>
+
+<tr>
+<td width="300">
+<p>Cell no:<br><b>0<?=$cell_no1;?><br><?= $cell_no2 != 0 ? "0".$cell_no2 : "" ?></b></p>
+</td>
+<td colspan="2" width="324">
+<p>Email address:<br><b><?=$student_email;?></b></p>
+</td>
+</tr>
+<tr>
+<td width="300">
+<p>Module to tutor:<br><b><?=$module_name;?> <?=$module_code;?><b/></p>
+</td>
+<td colspan="2" width="324">
+<p>Faculty:<br><b><?=$faculty;?></b></p>
 </td>
 </tr>
 <tr>
 <td colspan="3" width="624">
-<p>Passport no. (<em>international students only</em>):</p>
-</td>
-</tr>
-<tr>
-<td width="300">
-<p>Cell no.:</p>
-</td>
-<td colspan="2" width="324">
-<p>Email address:</p>
-</td>
-</tr>
-<tr>
-<td width="300">
-<p>Module to tutor:</p>
-</td>
-<td colspan="2" width="324">
-<p>Faculty:</p>
-</td>
-</tr>
-<tr>
-<td colspan="3" width="624">
-<p>Lecturer:</p>
+<p>Lecturer:<br><b><?=$l_title;?> <?=$l_initial;?> <?=$l_lastname;?></b></p>
 </td>
 </tr>
 </tbody>
@@ -82,15 +79,15 @@
 </tr>
 <tr>
 <td width="312">
-<p>Current program registered for e.g. BCom (Accounting):</p>
+<p>Current program:<br><b><?=$current_program;?></b></p>
 </td>
 <td width="312">
-<p>Current study year e.g. 3rd year, hons. etc:</p>
+<p>Current study:<br><b>Year <?=$current_year;?> <?=$current_level;?></b></p>
 </td>
 </tr>
 <tr>
 <td colspan="2" width="624">
-<p>Explain in a few sentences why you would like to become a Tutor</p>
+<p>Explain in a few sentences why you would like to become a Tutor:<br><b><?=$memoir;?></b></p>
 </td>
 </tr>
 </tbody>
@@ -100,7 +97,7 @@
 <tbody>
 <tr>
 <td colspan="3" width="624">
-<p>Lecturer approval (to be completed by lecturer)</p>
+<p>Lecturer approval (to be completed by lecturer) <b><?= $staff_no!= 0 ? "":"NOT DONE";?> </b></p>
 </td>
 </tr>
 <tr>
@@ -108,57 +105,34 @@
 <p>The nominated Tutor complies with the minimum requirements set for Tutors as stated above</p>
 </td>
 <td width="45">
-<p>YES</p>
+<p><?= $staff_no!= 0 ? "YES":"NO" ;?></p>
 </td>
-<td width="35">
-<p>NO</p>
-</td>
+
 </tr>
 <tr>
 <td width="544">
 <p>I agree to meet with the nominated Tutor regularly and assign duties to her/him, and sign registers</p>
 </td>
 <td width="45">
-<p>YES</p>
+<p><?= $staff_no!= 0 ? "YES":"NO" ;?></p>
 </td>
-<td width="35">
-<p>NO</p>
-</td>
+
 </tr>
 <tr>
 <td colspan="3" width="624">
-<p>Telephone extension of lecturer:</p>
+<p>Email address of lecturer:<br><b><?=$lecturere_email;?></b></p>
 </td>
 </tr>
-<tr>
-<td colspan="3" width="624">
-<p>Email address of lecturer:</p>
-</td>
-</tr>
+
 </tbody>
 </table>
 <p>&nbsp;</p>
 <p>&nbsp; </p>
-<p>I hereby affirm that the information contained in this application is true and accurate.</p>
 <p>&nbsp;</p>
 <table border="1">
 <tbody>
-<tr>
-<td width="389">
-<p>Signature of Applicant:</p>
-</td>
-<td width="235">
-<p>Date:</p>
-</td>
-</tr>
-<tr>
-<td width="389">
-<p>Signature of Lecturer:</p>
-</td>
-<td width="235">
-<p>Date:</p>
-</td>
-</tr>
+
+
 </tbody>
 </table>
 <p>&nbsp;</p>

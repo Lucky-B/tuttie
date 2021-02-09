@@ -75,17 +75,27 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function view()
+	public function view($link = null)
 	{
 		if(isset($this->session->userdata['logged_in']))
 		{
-			/*get information based on hash.
-			Then query selected form 
-			*/
 			
-			$this->load->view('template/header');
-			$this->load->view('admin/application_view');
-			//$this->load->view('template/footer');
+			if ($link != null)
+			{
+				$link_id = array('link_id' => $link );
+				if(($this->lecturers->check_link($link_id)) === 1 )
+				{
+					$data = $this->lecturers->get_data_vialink($link_id);
+					$this->load->view('template/header');
+					$this->load->view('admin/application_view',$data);
+					//$this->load->view('template/footer');
+				}
+			}
+			else
+			{
+				
+			}
+			
 		}
 		else
 		{
