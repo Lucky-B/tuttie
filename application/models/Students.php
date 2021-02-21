@@ -59,6 +59,7 @@ class Students extends CI_Model {
 			$code_code = $stu['module_code'];
 			$faculty = $stu['faculty'];
 			$memoir = $stu['memoir'];
+			$memoir= preg_replace('/[^a-zA-Z0-9_ %\[\]\.\(\)%&-]/s', '', $memoir);
 			$s_intials = strtoupper($stu['s_initial']);
 			$current_level = $stu['current_level'];
 			$lecturer_email =$stu['l_email'];
