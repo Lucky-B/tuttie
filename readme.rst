@@ -10,4 +10,3 @@ The app has a back end to check on the list of applicants and view completed and
 *******************
 Release Information
 *******************
-http://www.tuttie.co.za
